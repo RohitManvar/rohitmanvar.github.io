@@ -1,6 +1,6 @@
 import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon, SparklesIcon } from "lucide-react";
-
+import atmiyaLogo from "../public/atmiya.jpg";
 export const DATA = {
   name: "Rohit Manvar",
   initials: "HC",
@@ -89,7 +89,7 @@ export const DATA = {
       school: "Atmiya Institute of Technology & Science, Rajkot",
       href: "https://atmiyauni.ac.in/",
       degree: "Bachelor of Computer Applications",
-      logoUrl: "/atmiya.jpg",
+      logoUrl: "atmiyalogo",
       start: "2021",
       end: "2024",
     }
