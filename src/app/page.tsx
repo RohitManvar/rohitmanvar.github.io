@@ -66,12 +66,15 @@ export default function Page() {
           <div className="space-y-content-sm">
             <BlurFade delay={BLUR_FADE_DELAY * 11}>
               <p className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
-                I was born and raised in Junagadh. I&apos;ve always been curious about how things work, and early on, I loved exploring the mysteries of life and developing a sense of spiritual awareness.- "I'm exerting myself to escape the same mind that traps me."
+                I was born and raised in Junagadh. I&apos;ve always been curious about how things work, and early on, I loved exploring the mysteries of life and developing a sense of spiritual awareness.-<br />
+                <span className="bg-amber-100 dark:bg-amber-600 px-1 rounded">
+                  "I'm exerting myself to escape the same mind that traps me."
+                </span>
               </p>
             </BlurFade>
             <BlurFade delay={BLUR_FADE_DELAY * 12}>
               <p className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
-                Back when I worked as an HR Assistant, I often faced issues with salary processing, ERP software, and attendance systems. One day, I watched how a professional solved those problems with technology, and it left a lasting impression—I realized I wanted to understand and build such solutions myself.
+                Back when I worked as an HR Assistant, I often faced issues with salary processing, ERP software, and attendance systems. One day, I watched how a professionals solved those problems with technology, and it left a lasting impression—I realized I wanted to understand and build such solutions myself.
               </p>
             </BlurFade>
             <BlurFade delay={BLUR_FADE_DELAY * 13}>
@@ -81,7 +84,7 @@ export default function Page() {
             </BlurFade>
             <BlurFade delay={BLUR_FADE_DELAY * 15}>
               <p className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
-                Along the way, I found two passions: Android application development and Data Engineering. With Android, I enjoy creating apps that bring ideas to life for users. And with Data Engineering, I dive into the world of pipelines, scalable systems, and insights hidden in data — the perfect bridge between building technology and creating real impact.
+                Along the way, I found two passions: Android application development and Data Engineering. With Android, I enjoy creating apps that bring ideas to life for users. And with Data Engineering, I dive into the world of pipelines, scalable systems, and insights.
               </p>
             </BlurFade>
           </div>

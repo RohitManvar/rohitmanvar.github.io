@@ -10,7 +10,7 @@ export const DATA = {
   description:
     "A Data Explorer and passionate about Application Development, learning new technologies, crafted with care, and building projects with a mindful spirit.",
   summary:
-    "I was born and raised in Junagadh. I’ve always been curious about how things work, and early on, I loved exploring the mysteries of life and developing a sense of spiritual awareness.- I am exerting myself to escape the same mind that traps me.\n Back when I worked as an HR Assistant, I often faced issues with salary processing, ERP software, and attendance systems. One day, I watched how a professional solved those problems with technology, and it left a lasting impression—I realized I wanted to understand and build such solutions myself.\nThat moment pushed me to pursue a Bachelor’s in Computer Applications at Atmiya University, Rajkot, where I explored programming, theory, and built projects that gave me a strong technical foundation. Today, as a Master’s student at The Maharaja Sayajirao University of Baroda, I’m continuing that journey by developing applications such as a movie recommender, BookNest (an Android Virtual Library app), a Flutter-based startup idea evaluator (Nous), and backend services like AuthService with FastAPI, JWT, and Redis.\nAlong the way, I found two passions: Android application development and Data Engineering.With Android, I enjoy building apps like BookNest that bring ideas to life for users. And with Data Engineering, I dive into the world of pipelines, scalable systems, and insights hidden in data — the perfect bridge between problem-solving and creating real impact..",
+    "",
   avatarUrl: "/me.jpg",
 
   navbar: [
