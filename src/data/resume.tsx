@@ -89,7 +89,7 @@ export const DATA = {
       school: "Atmiya Institute of Technology & Science, Rajkot",
       href: "https://atmiyauni.ac.in/",
       degree: "Bachelor of Computer Applications",
-      logoUrl: "/Atmiya.jpg",
+      logoUrl: "/atmiya.jpg",
       start: "2021",
       end: "2024",
     }
