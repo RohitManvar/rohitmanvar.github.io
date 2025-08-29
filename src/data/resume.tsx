@@ -254,7 +254,7 @@ export const DATA = {
       theme: "History & Biography",
       books: [
         {
-          title: "Indian Hestory",
+          title: "Indian History",
           author: "Sanjay Paghdal",
           number: 5,
         },
