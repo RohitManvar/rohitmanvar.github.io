@@ -1,6 +1,5 @@
 import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon, SparklesIcon } from "lucide-react";
-import atmiyaLogo from "../assets/atmiya.jpg";
 
 export const DATA = {
   name: "Rohit Manvar",
