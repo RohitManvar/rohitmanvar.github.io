@@ -15,7 +15,6 @@ import Link from "next/link";
 import { Fish } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { Aquarium } from "./aquarium";
 
 export default function Navbar() {
   const [isAquariumActive, setIsAquariumActive] = useState(false);
@@ -79,9 +78,6 @@ export default function Navbar() {
           </Tooltip>
         </DockIcon>
       </Dock>
-
-      {/* Aquarium Component */}
-      <Aquarium isActive={isAquariumActive} />
     </div>
   );
 }

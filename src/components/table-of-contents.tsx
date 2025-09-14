@@ -8,14 +8,11 @@ import { ChevronRight, ChevronDown } from "lucide-react";
 // Define the sections of your page
 const SECTIONS = [
   { id: "hero", label: "Home" },
-  { id: "rubiks-cube", label: "Rubik's Cube" },
   { id: "about", label: "About" },
   { id: "work", label: "Work" },
   { id: "education", label: "Education" },
   { id: "projects", label: "Projects" },
   { id: "books", label: "Books" },
-  { id: "hong-kong", label: "Hong Kong" },
-  { id: "world", label: "World" },
   { id: "contact", label: "Contact" },
 ];
 
@@ -29,7 +26,7 @@ export function TableOfContents() {
   const handleNextSection = () => {
     if (hasViewedAllSections) {
       // Redirect to GitHub
-      window.open('https://github.com/heilcheng', '_blank');
+      window.open('https://github.com/rohitmanvar', '_blank');
       return;
     }
 

@@ -4,13 +4,13 @@ import { HomeIcon, NotebookIcon, SparklesIcon } from "lucide-react";
 export const DATA = {
   name: "Rohit Manvar",
   initials: "HC",
-  url: "https://heilcheng.github.io",
+  url: "https://rohitmanvar.github.io",
   location: "Vadodara",
   locationLink: "https://www.google.com/maps/place/vadodara",
   description:
     "A Data Explorer and passionate about Application Development, learning new technologies, crafted with care, and building projects with a mindful spirit.",
   summary:
-    "I was born and raised in Junagadh. I’ve always been curious about how things work, and early on, I loved exploring the mysteries of life and developing a sense of spiritual awareness.- I am exerting myself to escape the same mind that traps me.\n Back when I worked as an HR Assistant, I often faced issues with salary processing, ERP software, and attendance systems. One day, I watched how a professional solved those problems with technology, and it left a lasting impression—I realized I wanted to understand and build such solutions myself.\nThat moment pushed me to pursue a Bachelor’s in Computer Applications at Atmiya University, Rajkot, where I explored programming, theory, and built projects that gave me a strong technical foundation. Today, as a Master’s student at The Maharaja Sayajirao University of Baroda, I’m continuing that journey by developing applications such as a movie recommender, BookNest (an Android Virtual Library app), a Flutter-based startup idea evaluator (Nous), and backend services like AuthService with FastAPI, JWT, and Redis.\nAlong the way, I found two passions: Android application development and Data Engineering.With Android, I enjoy building apps like BookNest that bring ideas to life for users. And with Data Engineering, I dive into the world of pipelines, scalable systems, and insights hidden in data — the perfect bridge between problem-solving and creating real impact..",
+    "",
   avatarUrl: "/me.jpg",
 
   navbar: [
@@ -89,7 +89,7 @@ export const DATA = {
       school: "Atmiya Institute of Technology & Science, Rajkot",
       href: "https://atmiyauni.ac.in/",
       degree: "Bachelor of Computer Applications",
-      logoUrl: "/Atmiya.png",
+      logoUrl: "/logo.png",
       start: "2021",
       end: "2024",
     }
@@ -115,6 +115,34 @@ export const DATA = {
         {
           type: "Source",
           href: "https://github.com/RohitManvar/BookNest",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "",
+    },
+    {
+      title: "Movie Recommendation",
+      href: "",
+      dates: "2025 - Feb",
+      active: true,
+      description:
+        "A machine learning-powered Movie Recommendation System built with Python and Streamlit.Provides personalized movie suggestions with content-based filtering and fetches posters & details dynamically from the OMDb API.",
+      technologies: [
+        "Python",
+        "Numpy",
+        "Pandas",
+        "Streamlit",
+      ],
+      links: [
+        {
+          type: "Web Application",
+          href: "https://movierecsyst-792207315917.asia-south1.run.app",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/RohitManvar/Movie-Recommender-System",
           icon: <Icons.github className="size-3" />,
         },
       ],
@@ -246,22 +274,32 @@ export const DATA = {
         {
           title: "Manifest",
           author: "Roxie Nafousi",
-          number: 7,
+          number: 5,
         },
       ],
     },
     {
-      theme: "History & Biography",
+      theme: "Biography",
       books: [
-        {
-          title: "Indian Hestory",
-          author: "Sanjay Paghdal",
-          number: 5,
-        },
         {
           title: "Biography of Abraham Lincoln",
           author: "Swami Sachchidanand",
           number: 6,
+        },
+      ],
+    },
+    {
+      theme: "Fiction",
+      books: [
+        {
+          title: "Kafan",
+          author: "Premchand",
+          number: 7,
+        },
+        {
+          title: "Usne Kaha Tha",
+          author: "Chandradhar Sharma Guleri",
+          number: 8,
         },
       ],
     },
