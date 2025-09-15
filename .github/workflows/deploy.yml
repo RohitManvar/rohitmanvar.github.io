@@ -26,10 +26,7 @@ jobs:
         run: npm install   # or pnpm install
 
       - name: Build Next.js app
-        run: npm run build
-
-      - name: Export static site
-        run: npm run export
+        run: npm run build   # ✅ this will now output to ./out (no need to export manually)
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
