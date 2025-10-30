@@ -8,7 +8,7 @@ export const DATA = {
   location: "Vadodara",
   locationLink: "https://www.google.com/maps/place/vadodara",
   description:
-    "A Data Explorer and passionate about Application Development, learning new technologies, crafted with care, and building projects with a mindful spirit.",
+    "A Data Explorer and passionate about Data Engineer & Development, Learning new technologies, crafted with care, and building projects with a mindful spirit.",
   summary:
     "",
   avatarUrl: "/me.jpg",
@@ -96,32 +96,6 @@ export const DATA = {
   ],
   projects: [
     {
-      title: "BookNest",
-      href: "",
-      dates: "2025 - Present",
-      active: true,
-      description:
-        "BookNest is an Android e-library application built with Java and Firebase, designed to bring the experience of a personal library to your phone. It allows users to explore, read, and organize books, while providing a smooth and modern UI with Material Design.",
-      technologies: [
-        "Android",
-        "Firebase",
-      ],
-      links: [
-        {
-          type: "Application",
-          href: "",
-          icon: <Icons.globe className="size-3" />,
-        },
-        {
-          type: "Source",
-          href: "https://github.com/RohitManvar/BookNest",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "",
-      video: "",
-    },
-    {
       title: "Movie Recommendation",
       href: "",
       dates: "2025 - Feb",
@@ -136,7 +110,7 @@ export const DATA = {
       ],
       links: [
         {
-          type: "Web Application",
+          type: "Python Application",
           href: "https://movierecsyst-792207315917.asia-south1.run.app",
           icon: <Icons.globe className="size-3" />,
         },
@@ -148,29 +122,28 @@ export const DATA = {
       ],
       image: "",
       video: "",
-    },
-    {
-      title: "Nous",
-      href: "https://drive.google.com/file/d/1YnKJn6uTOcQwPDmiJw1CnP1YSrEdlKIL/view?usp=drive_link",
-      dates: "2025 - Aug",
+    }, {
+      title: "Custom ELT Project",
+      href: "",
+      dates: "2025 - Oct",
       active: true,
       description:
-        "Nous is a creative Flutter app to submit, vote, and rank startup ideas. Track top ideas on a dynamic leaderboard with AI ratings, dark/light themes and offline storage using SharedPreferences.",
+        "Custom ELT Project with Airflow and dbt is an end-to-end, containerized data engineering pipeline that automates the Extract, Load, and Transform (ELT) process using Docker, PostgreSQL, Apache Airflow, and dbt (Data Build Tool).",
       technologies: [
-        "Flutter",
-        "Dart",
-        "Animations",
-        "Packages",
+        "Python",
+        "DBT",
+        "Airflow",
+        "PostgreSQL",
       ],
       links: [
         {
-          type: "Application",
-          href: "https://drive.google.com/file/d/1YnKJn6uTOcQwPDmiJw1CnP1YSrEdlKIL/view",
+          type: "Data Pipeline",
+          href: "",
           icon: <Icons.globe className="size-3" />,
         },
         {
           type: "Source",
-          href: "https://github.com/RohitManvar/Nous",
+          href: "https://github.com/RohitManvar/Custom-ELT-Project",
           icon: <Icons.github className="size-3" />,
         },
       ],
@@ -193,7 +166,7 @@ export const DATA = {
       ],
       links: [
         {
-          type: "Website",
+          type: "DA/ML",
           href: "https://online-product-recommendation.onrender.com/",
           icon: <Icons.globe className="size-3" />,
         },
@@ -223,13 +196,67 @@ export const DATA = {
       ],
       links: [
         {
-          type: "Website",
+          type: "JSP Application",
           href: "",
           icon: <Icons.globe className="size-3" />,
         },
         {
           type: "Source",
           href: "https://github.com/RohitManvar/Weatherly",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "",
+    },
+    {
+      title: "Nous",
+      href: "https://drive.google.com/file/d/1YnKJn6uTOcQwPDmiJw1CnP1YSrEdlKIL/view?usp=drive_link",
+      dates: "2025 - Aug",
+      active: true,
+      description:
+        "Nous is a creative Flutter app to submit, vote, and rank startup ideas. Track top ideas on a dynamic leaderboard with AI ratings, dark/light themes and offline storage using SharedPreferences.",
+      technologies: [
+        "Flutter",
+        "Dart",
+        "Animations",
+        "Packages",
+      ],
+      links: [
+        {
+          type: "Flutter Application",
+          href: "https://drive.google.com/file/d/1YnKJn6uTOcQwPDmiJw1CnP1YSrEdlKIL/view",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/RohitManvar/Nous",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "",
+    },
+    {
+      title: "BookNest",
+      href: "",
+      dates: "2025 - Present",
+      active: true,
+      description:
+        "BookNest is an Android e-library application built with Java and Firebase, designed to bring the experience of a personal library to your phone. It allows users to explore, read, and organize books, while providing a smooth and modern UI with Material Design.",
+      technologies: [
+        "Android",
+        "Firebase",
+      ],
+      links: [
+        {
+          type: "Android Application",
+          href: "",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/RohitManvar/BookNest",
           icon: <Icons.github className="size-3" />,
         },
       ],
@@ -256,6 +283,11 @@ export const DATA = {
           author: "Renuka Gavrani",
           number: 3,
         },
+        {
+          title: "The Power of Subconscious Mind",
+          author: "Dr Joseph Murphy",
+          number: 4,
+        },
       ],
     },
     {
@@ -264,7 +296,7 @@ export const DATA = {
         {
           title: "The Art of Dealing with People",
           author: "Les Giblin",
-          number: 4,
+          number: 5,
         },
       ],
     },
@@ -274,7 +306,7 @@ export const DATA = {
         {
           title: "Manifest",
           author: "Roxie Nafousi",
-          number: 5,
+          number: 6,
         },
       ],
     },
@@ -284,7 +316,7 @@ export const DATA = {
         {
           title: "Biography of Abraham Lincoln",
           author: "Swami Sachchidanand",
-          number: 6,
+          number: 7,
         },
       ],
     },
@@ -294,12 +326,22 @@ export const DATA = {
         {
           title: "Kafan",
           author: "Premchand",
-          number: 7,
+          number: 8,
         },
         {
           title: "Usne Kaha Tha",
           author: "Chandradhar Sharma Guleri",
-          number: 8,
+          number: 9,
+        },
+      ],
+    },
+    {
+      theme: "Novel",
+      books: [
+        {
+          title: "An Inspector Calls (crime thriller)",
+          author: "J. B. Priestley",
+          number: 10,
         },
       ],
     },

@@ -26,78 +26,113 @@ interface TechCategory {
 
 const techCategories: TechCategory[] = [
   {
-    category: "Core & Computational Tools",
-    subcategories: [
+    "category": "Programming Languages & Core Environments",
+    "subcategories": [
       {
-        name: "Languages & Environments",
-        items: [
-          { name: "Java", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
-          { name: "Python", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
-          { name: "Dart", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" },
-          { name: "C#", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" },
-          { name: "C++", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" },
-          { name: "PHP", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" },
-        ]
-      },
-      {
-        name: "Data tools",
-        items: [
-          { name: "Matplotlib", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matplotlib/matplotlib-original.svg" },
-          { name: "TensorFlow", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" },
-          { name: "NumPy", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" },
-          { name: "Pandas", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" },
-          { name: "Streamlit", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/streamlit/streamlit-original.svg" },
+        "name": "Languages",
+        "items": [
+          { "name": "Java", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+          { "name": "Python", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+          { "name": "C++", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" },
+          { "name": "C#", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" },
+          { "name": "PHP", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" },
+          { "name": "Dart", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg" }
         ]
       }
     ]
   },
   {
-    category: "Application Development",
-    subcategories: [
+    "category": "Data Science & Analytics",
+    "subcategories": [
       {
-        name: "",
-        items: [
-          { name: "Android", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" },
-          { name: "Flutter", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" },
+        "name": "Libraries & Tools",
+        "items": [
+          { "name": "NumPy", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg" },
+          { "name": "Pandas", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg" },
+          { "name": "Matplotlib", "logo": "https://upload.wikimedia.org/wikipedia/commons/8/84/Matplotlib_icon.svg" },
+          { "name": "TensorFlow", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" },
+          { "name": "Streamlit", "logo": "https://streamlit.io/images/brand/streamlit-mark-color.svg" }
         ]
       }
     ]
   },
   {
-    category: "Web Development",
-    subcategories: [
+    "category": "Data Engineering & Workflow Orchestration",
+    "subcategories": [
       {
-        name: "",
-        items: [
-          { name: "HTML", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
-          { name: "CSS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
-          { name: "JavaScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+        "name": "Pipeline & Automation Tools",
+        "items": [
+          { "name": "Apache Airflow", "logo": "https://upload.wikimedia.org/wikipedia/commons/d/de/AirflowLogo.png" },
+          { "name": "dbt (Data Build Tool)", "logo": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/dbt.svg" },
+          { "name": "Docker", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+          { "name": "Redis", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" }
+        ]
+      }
+    ]
+  },
+  {
+    "category": "ELT & Data Pipeline Projects",
+    "subcategories": [
+      {
+        "name": "ETL / ELT Stack",
+        "items": [
+          { "name": "Airflow DAGs", "logo": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/apacheairflow.svg" },
+          { "name": "dbt Models", "logo": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/dbt.svg" },
+          { "name": "PostgreSQL", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
+          { "name": "Docker Compose", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" }
+        ]
+      }
+    ]
+  },
+  {
+    "category": "Web & Backend Development",
+    "subcategories": [
+      {
+        "name": "Frameworks & Databases",
+        "items": [
+          { "name": "Flask", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" },
+          { "name": "FastAPI", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" },
+          { "name": "JSP / Servlet", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+          { "name": ".NET", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" },
+          { "name": "MySQL", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+          { "name": "Firebase", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" }
         ]
       },
+      {
+        "name": "Frontend & Mobile",
+        "items": [
+          { "name": "HTML5", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+          { "name": "CSS3", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" },
+          { "name": "JavaScript", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+          { "name": "Flutter", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" },
+          { "name": "Android", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" }
+        ]
+      }
     ]
   },
   {
-    "category": "Frameworks & Backend",
-    "items": [
-      { "name": ".NET", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" },
-      { "name": "Flask", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" },
-      { "name": "JSP", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
-      { "name": "FastAPI", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" },
-      { "name": "MySQL", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
-      { "name": "Firebase", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" }
-    ]
-  },
-  {
-    "category": "DevOps & Cloud Platforms",
-    "items": [
-      { "name": "Git", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
-      { "name": "GitHub", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
-      { "name": "Redis", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" },
-      { "name": "AWS", "logo": "https://img.icons8.com/?size=100&id=33039&format=png&color=000000" },
-      { "name": "Google Cloud (GCP)", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" },
+    "category": "Cloud & DevOps Platforms",
+    "subcategories": [
+      {
+        "name": "Version Control & Infrastructure",
+        "items": [
+          { "name": "Git", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+          { "name": "GitHub", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" }
+        ]
+      },
+      {
+        "name": "Cloud Platforms",
+        "items": [
+          { "name": "AWS EC2", "logo": "https://img.icons8.com/color/96/amazon-web-services.png" },
+          { "name": "AWS S3", "logo": "https://img.icons8.com/color/96/amazon-s3.png" },
+          { "name": "AWS Elastic Beanstalk", "logo": "https://img.icons8.com/color/96/amazon-web-services.png" },
+          { "name": "GCP", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" }
+        ]
+      }
     ]
   }
-];
+]
+
 
 // Flatten all items for the scrolling marquee
 const allTechItems: TechItem[] = techCategories.flatMap(category =>
