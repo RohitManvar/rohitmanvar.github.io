@@ -210,53 +210,27 @@ export const DATA = {
       video: "",
     },
     {
-      title: "Nous",
+      title: "BookNest",
       href: "https://drive.google.com/file/d/1YnKJn6uTOcQwPDmiJw1CnP1YSrEdlKIL/view?usp=drive_link",
-      dates: "2025 - Aug",
+      dates: "2025 - Nov",
       active: true,
       description:
-        "Nous is a creative Flutter app to submit, vote, and rank startup ideas. Track top ideas on a dynamic leaderboard with AI ratings, dark/light themes and offline storage using SharedPreferences.",
+        "BookNest is an Android e-Book application built with Flutter and Firebase, designed to bring the experience of a personal library to your phone. It allows users to explore, read, and organize books, while providing a smooth and modern UI with Material Design.",
       technologies: [
         "Flutter",
         "Dart",
-        "Animations",
-        "Packages",
+        "Firebase",
+        "Supabase",
       ],
       links: [
         {
           type: "Flutter Application",
-          href: "https://drive.google.com/file/d/1YnKJn6uTOcQwPDmiJw1CnP1YSrEdlKIL/view",
+          href: "https://drive.google.com/file/d/19QJQ1gI8E0FNmOS9rRWkAVb1K7ZV_FDH/view?usp=drive_link",
           icon: <Icons.globe className="size-3" />,
         },
         {
           type: "Source",
-          href: "https://github.com/RohitManvar/Nous",
-          icon: <Icons.github className="size-3" />,
-        },
-      ],
-      image: "",
-      video: "",
-    },
-    {
-      title: "BookNest",
-      href: "",
-      dates: "2025 - Present",
-      active: true,
-      description:
-        "BookNest is an Android e-library application built with Java and Firebase, designed to bring the experience of a personal library to your phone. It allows users to explore, read, and organize books, while providing a smooth and modern UI with Material Design.",
-      technologies: [
-        "Android",
-        "Firebase",
-      ],
-      links: [
-        {
-          type: "Android Application",
-          href: "",
-          icon: <Icons.globe className="size-3" />,
-        },
-        {
-          type: "Source",
-          href: "https://github.com/RohitManvar/BookNest",
+          href: "https://github.com/RohitManvar/BookNestFlutter",
           icon: <Icons.github className="size-3" />,
         },
       ],
