@@ -79,7 +79,8 @@ const techCategories: TechCategory[] = [
           { "name": "Airflow DAGs", "logo": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/apacheairflow.svg" },
           { "name": "dbt Models", "logo": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/dbt.svg" },
           { "name": "PostgreSQL", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
-          { "name": "Docker Compose", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" }
+          { "name": "Docker Compose", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+          { "name": "Snowflake", "logo": "https://upload.wikimedia.org/wikipedia/commons/5/56/Snowflake_Logo.svg" }
         ]
       }
     ]
