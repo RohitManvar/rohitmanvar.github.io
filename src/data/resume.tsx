@@ -19,7 +19,7 @@ export const DATA = {
     // { href: "/showcase", icon: SparklesIcon, label: "Showcase" },
   ],
   contact: {
-    email: "rohitmanvar123@gmail.com",
+    email: "rohitmanvar.dev@gmail.com",
     tel: "+91-9662787336",
     social: {
       GitHub: {
@@ -37,7 +37,7 @@ export const DATA = {
 
       email: {
         name: "Send Email",
-        url: "mailto:rohitmanvar123@gmail.com",
+        url: "mailto:rohitmanvar.dev@gmail.com",
         icon: Icons.email,
         navbar: false,
       },
