@@ -15,8 +15,8 @@ export const DATA = {
 
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
-    // { href: "/blog", icon: NotebookIcon, label: "Blog" },
-    // { href: "/showcase", icon: SparklesIcon, label: "Showcase" },
+    { href: "/blog", icon: NotebookIcon, label: "Blog" },
+    { href: "/showcase", icon: SparklesIcon, label: "Showcase" },
   ],
   contact: {
     email: "rohitmanvar.dev@gmail.com",
