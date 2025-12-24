@@ -1,5 +1,5 @@
 import { Icons } from "@/components/icons";
-import { HomeIcon, NotebookIcon, SparklesIcon } from "lucide-react";
+import { HomeIcon, Link, NotebookIcon, SparklesIcon } from "lucide-react";
 
 export const DATA = {
   name: "Rohit Manvar",
@@ -32,6 +32,12 @@ export const DATA = {
         name: "LinkedIn",
         url: "https://www.linkedin.com/in/rohit-manvar-141261216/",
         icon: Icons.linkedin,
+        navbar: true,
+      },
+      Linktree: {
+        name: "Linktree",
+        url: "https://linktr.ee/RohitManvar",
+        icon: Link,
         navbar: true,
       },
 
