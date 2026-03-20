@@ -6,37 +6,11 @@ Built with Next.js, styled with Tailwind CSS, and brought to life with Three.js 
 
 ## Table of Contents
 
-- [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Quick Start](#quick-start)
 - [How to Make This Your Own](#how-to-make-this-your-own)
 - [Deployment](#deployment)
 
-## Features
-
-### Interactive 3D Visualizations
-
-- **Rubik's Cube Solver** (`/src/components/rubiks-cube.tsx`): A fully interactive 3D Rubik's Cube that visualizes the CFOP solving method, breaking down the solution into Cross, F2L, OLL, and PLL stages.
-
-- **Protein Folding Viewer** (`/src/components/protein-folding.tsx`): Inspired by AlphaFold, this visualizer shows how a protein chain folds into its 3D structure with pLDDT confidence score coloring and a Predicted Aligned Error (PAE) plot.
-
-- **Torus-Mug Morph** (`/src/components/torus-mug-morph.tsx`): An interactive demo of topological equivalence — morph a 3D torus into a coffee mug using a slider.
-
-### Data-Driven Maps
-
-- **World Map** (`/src/components/world-map.tsx`): Highlights countries I've visited, built with react-simple-maps.
-
-- **Hong Kong Map** (`/src/components/hong-kong-map.tsx`): A map of favorite spots built with react-leaflet with custom markers.
-
-### Dynamic & UI Features
-
-- **GitHub Contribution Graph** (`/src/components/github-contributions.tsx`): Live coding activity graph fetched from a public GitHub contributions API. Fully responsive with horizontal scroll on mobile. No token required.
-
-- **Aquarium Mode** (`/src/components/aquarium.tsx`): A toggleable full-screen overlay with animated fish and shrimp.
-
-- **Smooth Animations** (`/src/components/magicui/`): Fluid animations powered by Magic UI, included directly for full customization (Dock navigation, BlurFade effects).
-
-- **MDX Blog** (`/src/app/blog/`): Blog powered by MDX — write in Markdown and embed React components inline.
 
 ## Tech Stack
 
