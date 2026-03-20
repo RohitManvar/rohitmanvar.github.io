@@ -184,7 +184,7 @@ export default function Page() {
       </section>
 
       <section id="github" className="mb-section-lg">
-        <GitHubContributions username="heilcheng" delay={BLUR_FADE_DELAY * 24} />
+        <GitHubContributions username="RohitManvar" delay={BLUR_FADE_DELAY * 24} />
       </section>
 
       <section id="books" className="mb-section-lg">
