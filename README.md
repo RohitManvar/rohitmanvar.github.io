@@ -47,11 +47,6 @@ src/data/resume.tsx
 
 In `src/app/page.tsx`, find the `<GitHubContributions />` component and change the `username` prop to your GitHub username. No token or environment variable needed.
 
-### 3. Update the Maps
-
-- **World map**: edit the `visitedCountries` array in `src/components/world-map.tsx`
-- **Hong Kong map**: update the `locations` object in `src/components/hong-kong-map.tsx`
-
 ## Deployment
 
 The portfolio auto-deploys to GitHub Pages on every push to `main`. The workflow at `.github/workflows/deploy.yml` handles the build and deployment automatically.
