@@ -31,33 +31,9 @@ export const GitHubContributions = ({ username, delay = 0 }: GitHubContributions
   useEffect(() => {
     const fetchContributions = async () => {
       try {
-        const query = `
-          query {
-            user(login: "${username}") {
-              contributionsCollection {
-                contributionCalendar {
-                  totalContributions
-                  weeks {
-                    contributionDays {
-                      date
-                      contributionCount
-                      color
-                    }
-                  }
-                }
-              }
-            }
-          }
-        `;
-
-        const response = await fetch('https://api.github.com/graphql', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${process.env.NEXT_PUBLIC_GITHUB_TOKEN || ''}`,
-          },
-          body: JSON.stringify({ query }),
-        });
+        const response = await fetch(
+          `https://github-contributions-api.jogruber.de/v4/${username}?y=last`
+        );
 
         if (!response.ok) {
           setError(true);
@@ -67,24 +43,19 @@ export const GitHubContributions = ({ username, delay = 0 }: GitHubContributions
 
         const data = await response.json();
 
-        if (data.errors || !data.data?.user) {
+        if (!data.contributions) {
           setError(true);
           setLoading(false);
           return;
         }
 
-        const weeks = data.data?.user?.contributionsCollection?.contributionCalendar?.weeks || [];
-
-        const allContributions: ContributionDay[] = [];
-        weeks.forEach((week: any) => {
-          week.contributionDays.forEach((day: any) => {
-            allContributions.push({
-              date: day.date,
-              contributionCount: day.contributionCount,
-              color: day.color,
-            });
-          });
-        });
+        const allContributions: ContributionDay[] = data.contributions.map(
+          (day: { date: string; count: number; level: number }) => ({
+            date: day.date,
+            contributionCount: day.count,
+            color: getGreenColor(day.count),
+          })
+        );
 
         setContributions(allContributions);
       } catch (err) {
