@@ -191,6 +191,34 @@ export const DATA = {
       video: "",
     },
     {
+  title: "Vibe2Value",
+  href: "",
+  dates: "March 2026",
+  active: true,
+  description:
+    "Hybrid creator search engine built for RoCathon that helps brands find the right influencers by combining semantic relevance with projected commercial performance (GMV). Uses local ONNX embeddings and pgvector HNSW indexing for fast, cost-free vector search with transparent scoring breakdowns.",
+  technologies: [
+    "TypeScript",
+    "Node.js",
+    "Express",
+    "PostgreSQL",
+    "pgvector",
+    "Transformers.js",
+    "Zod",
+  ],
+  links: [
+    {
+      type: "Source",
+      href: "https://github.com/RohitManvar/Vibe2Value",
+      icon: <Icons.github className="size-3" />,
+    },
+  ],
+  image: "",
+  video: "",
+},
+
+    
+    {
       title: "Weatherly",
       href: "",
       dates: "2024 - April",
