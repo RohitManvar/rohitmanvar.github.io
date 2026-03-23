@@ -104,7 +104,7 @@ export const DATA = {
     {
   title: "PopcornS — Movie Recommendation",
   href: "https://github.com/RohitManvar/Movie-Recommender-System",
-  dates: "2025",
+  dates: "",
   active: true,
   description:
     "A full-stack movie discovery app with content-based ML recommendations across 4800+ films. Features a Trending section, YouTube trailers, personal watchlist, genre filters, skeleton loading, toast notifications, and a fully responsive UI.",
@@ -136,7 +136,7 @@ export const DATA = {
 }, {
       title: "Custom ELT Project",
       href: "",
-      dates: "2025 - Oct",
+      dates: "",
       active: true,
       description:
         "Custom ELT Project with Airflow and dbt is an end-to-end, containerized data engineering pipeline that automates the Extract, Load, and Transform (ELT) process using Docker, PostgreSQL, Apache Airflow, and dbt (Data Build Tool).",
@@ -164,7 +164,7 @@ export const DATA = {
     {
       title: "Online-Product-Recommendation",
       href: "https://online-product-recommendation.onrender.com/",
-      dates: "2025 - March",
+      dates: "",
       active: true,
       description:
         "Application that recommends products to users based on their preferences and historical behavior. Built using Python and Streamlit, the app leverages machine learning models for content-based and collaborative filtering recommendations.",
@@ -193,7 +193,7 @@ export const DATA = {
     {
   title: "Vibe2Value",
   href: "",
-  dates: "March 2026",
+  dates: "",
   active: true,
   description:
     "Hybrid creator search engine built for RoCathon that helps brands find the right influencers by combining semantic relevance with projected commercial performance (GMV). Uses local ONNX embeddings and pgvector HNSW indexing for fast, cost-free vector search with transparent scoring breakdowns.",
@@ -216,12 +216,10 @@ export const DATA = {
   image: "",
   video: "",
 },
-
-    
     {
       title: "Weatherly",
       href: "",
-      dates: "2024 - April",
+      dates: "",
       active: true,
       description:
         "Dynamic web application that fetches and displays live weather information using external API integration. Users can search for any city to view real-time weather data, including temperature, humidity, wind speed, and overall weather conditions.",
@@ -251,7 +249,7 @@ export const DATA = {
     {
       title: "BookNest",
       href: "https://drive.google.com/file/d/1YnKJn6uTOcQwPDmiJw1CnP1YSrEdlKIL/view?usp=drive_link",
-      dates: "2025 - Nov",
+      dates: "",
       active: true,
       description:
         "BookNest is an Android e-Book application built with Flutter and Firebase, designed to bring the experience of a personal library to your phone. It allows users to explore, read, and organize books, while providing a smooth and modern UI with Material Design.",
