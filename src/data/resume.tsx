@@ -61,7 +61,7 @@ export const DATA = {
   start: "Jan 2026",
   end: "Present",
   bullets: [
-    "Built a Value Stream Mapping (VSM) Automation Tool to digitize Lean workflows and reduce manual effort.",
+    "Developing a Value Stream Mapping (VSM) Automation Tool to digitize Lean workflows and reduce manual effort.",
     "Designed and implemented PostgreSQL schemas and FastAPI-based backend APIs for analytics and reporting.",
     "Developed data processing and analytics logic to compute production metrics and enable real-time insights.",
     "Owned the end-to-end system including requirements, development, testing, and deployment of the application."
