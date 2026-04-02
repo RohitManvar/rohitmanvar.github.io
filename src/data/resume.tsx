@@ -66,7 +66,7 @@ export const DATA = {
     "Developed data processing and analytics logic to compute production metrics and enable real-time insights.",
     "Owned the end-to-end system including requirements, development, testing, and deployment of the application."
   ],
-}
+},
     {
       company: "Plasmid",
       href: "https://plasmid.co.in/",
