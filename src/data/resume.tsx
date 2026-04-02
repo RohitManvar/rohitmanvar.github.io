@@ -52,6 +52,22 @@ export const DATA = {
 
   technicalExperience: [
     {
+  company: "Faber Infinite",
+  href: "https://faberinfinite.com/",
+  badges: [],
+  location: "Vadodara, India",
+  title: "Software Engineer Intern (Data & Analytics Systems)",
+  logoUrl: "/faber.jpg",
+  start: "Jan 2026",
+  end: "Present",
+  bullets: [
+    "Built a Value Stream Mapping (VSM) Automation Tool to digitize Lean workflows and reduce manual effort.",
+    "Designed and implemented PostgreSQL schemas and FastAPI-based backend APIs for analytics and reporting.",
+    "Developed data processing and analytics logic to compute production metrics and enable real-time insights.",
+    "Owned the end-to-end system including requirements, development, testing, and deployment of the application."
+  ],
+}
+    {
       company: "Plasmid",
       href: "https://plasmid.co.in/",
       badges: [],
