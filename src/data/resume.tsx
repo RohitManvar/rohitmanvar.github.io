@@ -224,6 +224,11 @@ export const DATA = {
   ],
   links: [
     {
+          type: "Website",
+          href: "https://vibe2-value-rho.vercel.app/,
+          icon: <Icons.globe className="size-3" />,
+        },
+    {
       type: "Source",
       href: "https://github.com/RohitManvar/Vibe2Value",
       icon: <Icons.github className="size-3" />,
