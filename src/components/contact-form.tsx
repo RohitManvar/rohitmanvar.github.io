@@ -69,7 +69,7 @@ export function ContactForm({ delay = 0 }: { delay?: number }) {
         {/* Honeypot spam prevention */}
         <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} />
         
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div className="space-y-2 text-left">
             <label htmlFor="name" className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
               Name
