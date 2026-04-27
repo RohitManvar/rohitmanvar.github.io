@@ -63,7 +63,7 @@ const techCategories: TechCategory[] = [
         "name": "Pipeline & Automation Tools",
         "items": [
           { "name": "Apache Airflow", "logo": "https://upload.wikimedia.org/wikipedia/commons/d/de/AirflowLogo.png" },
-          { "name": "dbt (Data Build Tool)", "logo": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/dbt.svg" },
+          { "name": "dbt (Data Build Tool)", "logo": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/dbt.svg" },
           { "name": "Docker", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
           { "name": "Redis", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" }
         ]
@@ -76,11 +76,11 @@ const techCategories: TechCategory[] = [
       {
         "name": "ETL / ELT Stack",
         "items": [
-          { "name": "Airflow DAGs", "logo": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/apacheairflow.svg" },
-          { "name": "dbt Models", "logo": "https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/dbt.svg" },
+          { "name": "Airflow DAGs", "logo": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/apacheairflow.svg" },
+          { "name": "dbt Models", "logo": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/dbt.svg" },
           { "name": "PostgreSQL", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
           { "name": "Docker Compose", "logo": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
-          { "name": "Snowflake", "logo": "https://upload.wikimedia.org/wikipedia/commons/5/56/Snowflake_Logo.svg" }
+          { "name": "Snowflake", "logo": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/snowflake.svg" }
         ]
       }
     ]

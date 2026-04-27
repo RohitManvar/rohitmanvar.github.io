@@ -1,4 +1,5 @@
 import Navbar from "@/components/navbar";
+
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
@@ -30,9 +31,9 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: `${DATA.url}/me.jpg`,
-        width: 400,
-        height: 400,
+        url: `${DATA.url}/og-image.png`,
+        width: 1200,
+        height: 630,
         alt: DATA.name,
       },
     ],
@@ -52,7 +53,7 @@ export const metadata: Metadata = {
     title: `${DATA.name}`,
     description: DATA.description,
     card: "summary_large_image",
-    images: [`${DATA.url}/me.jpg`],
+    images: [`${DATA.url}/og-image.png`],
   },
   verification: {
     google: "",
@@ -78,6 +79,7 @@ export default function RootLayout({
             <div className="max-w-2xl mx-auto px-container-padding">
               {children}
             </div>
+
             <Navbar />
           </TooltipProvider>
         </ThemeProvider>

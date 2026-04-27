@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 import BlurFade from "./magicui/blur-fade";
 
 interface ContributionDay {
@@ -14,19 +15,21 @@ interface GitHubContributionsProps {
   delay?: number;
 }
 
-// Original GitHub green color function
-const getGreenColor = (count: number): string => {
-  if (count === 0) return '#ebedf0'; // Light gray for no contributions
-  if (count <= 3) return '#9be9a8'; // Very light green
-  if (count <= 6) return '#40c463'; // Light green
-  if (count <= 9) return '#30a14e'; // Medium green
-  return '#216e39'; // Dark green for high activity
+// GitHub green color function with dark mode support
+const getGreenColor = (count: number, isDark: boolean): string => {
+  if (count === 0) return isDark ? '#161b22' : '#ebedf0';
+  if (count <= 3) return isDark ? '#0e4429' : '#9be9a8';
+  if (count <= 6) return isDark ? '#006d32' : '#40c463';
+  if (count <= 9) return isDark ? '#26a641' : '#30a14e';
+  return isDark ? '#39d353' : '#216e39';
 };
 
 export const GitHubContributions = ({ username, delay = 0 }: GitHubContributionsProps) => {
   const [contributions, setContributions] = useState<ContributionDay[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme === "dark";
 
   useEffect(() => {
     const fetchContributions = async () => {
@@ -195,7 +198,7 @@ export const GitHubContributions = ({ username, delay = 0 }: GitHubContributions
                 key={dayIndex}
                 className="w-3 h-3 rounded-sm"
                 style={{
-                  backgroundColor: day.contributionCount > 0 ? getGreenColor(day.contributionCount) : '#ebedf0',
+                  backgroundColor: getGreenColor(day.contributionCount, isDark),
                 }}
                 title={`${day.date}: ${day.contributionCount} contributions`}
               />

@@ -32,6 +32,7 @@ interface TimelineItemProps {
   description?: string;
   bullets?: readonly string[];
   isLast?: boolean;
+  defaultExpanded?: boolean;
 }
 
 export const TimelineItem = ({
@@ -45,8 +46,9 @@ export const TimelineItem = ({
   description,
   bullets,
   isLast = false,
+  defaultExpanded = false,
 }: TimelineItemProps) => {
-  const [isExpanded, setIsExpanded] = React.useState(false);
+  const [isExpanded, setIsExpanded] = React.useState(defaultExpanded);
 
   const handleClick = (e: React.MouseEvent) => {
     if (description || bullets) {

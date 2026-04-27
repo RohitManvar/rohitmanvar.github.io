@@ -11,7 +11,9 @@ const SECTIONS = [
   { id: "about", label: "About" },
   { id: "work", label: "Work" },
   { id: "education", label: "Education" },
+  { id: "tech-stack", label: "Tech Stack" },
   { id: "projects", label: "Projects" },
+  { id: "github", label: "GitHub" },
   { id: "books", label: "Books" },
   { id: "contact", label: "Contact" },
 ];

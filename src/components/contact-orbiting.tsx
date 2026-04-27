@@ -52,7 +52,7 @@ export const ContactOrbiting = ({ delay = 0 }: ContactOrbitingProps) => {
       <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full">
         <div className="space-y-3">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-            Get in Touch.
+            Let&apos;s Connect.
           </h2>
           <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
             Want to chat? Feel free to reach out via{" "}
@@ -76,7 +76,7 @@ export const ContactOrbiting = ({ delay = 0 }: ContactOrbitingProps) => {
         {/* Orbiting Circles */}
         <motion.div
           variants={orbitingVariants}
-          className="relative overflow-hidden h-[500px] w-full flex items-center justify-center"
+          className="relative overflow-hidden h-[300px] w-full flex items-center justify-center"
         >
           {/* Inner orbit - Email icons */}
           <OrbitingCircles radius={80} duration={15}>
@@ -98,6 +98,7 @@ export const ContactOrbiting = ({ delay = 0 }: ContactOrbitingProps) => {
                 href={DATA.contact.social.email.url}
                 className="flex items-center justify-center w-12 h-12 rounded-full bg-background border shadow-lg hover:scale-110 transition-transform duration-200"
                 title="Send Email"
+                aria-label="Send Email"
               >
                 <Mail className="size-6 text-foreground" />
               </Link>
@@ -107,6 +108,7 @@ export const ContactOrbiting = ({ delay = 0 }: ContactOrbitingProps) => {
                 rel="noopener noreferrer"
                 className="flex items-center justify-center w-12 h-12 rounded-full bg-background border shadow-lg hover:scale-110 transition-transform duration-200"
                 title="Connect on LinkedIn"
+                aria-label="Connect on LinkedIn"
               >
                 <Linkedin className="size-6 text-foreground" />
               </Link>
@@ -116,6 +118,7 @@ export const ContactOrbiting = ({ delay = 0 }: ContactOrbitingProps) => {
                 rel="noopener noreferrer"
                 className="flex items-center justify-center w-12 h-12 rounded-full bg-background border shadow-lg hover:scale-110 transition-transform duration-200"
                 title="View GitHub"
+                aria-label="View GitHub"
               >
                 <Github className="size-6 text-foreground" />
               </Link>
