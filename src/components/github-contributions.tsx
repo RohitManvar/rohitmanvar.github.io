@@ -34,10 +34,19 @@ export const GitHubContributions = ({ username, delay = 0 }: GitHubContributions
   useEffect(() => {
     const fetchContributions = async () => {
       try {
+        const currentDate = new Date();
+        let startYear = currentDate.getFullYear();
+        // If the current month is before August (month index 7), start from August of last year
+        if (currentDate.getMonth() < 7) {
+          startYear -= 1;
+        }
+        const fromDate = `${startYear}-08-01T00:00:00Z`;
+        const toDate = currentDate.toISOString();
+
         const query = `
           query {
             user(login: "${username}") {
-              contributionsCollection {
+              contributionsCollection(from: "${fromDate}", to: "${toDate}") {
                 contributionCalendar {
                   totalContributions
                   weeks {
@@ -182,7 +191,7 @@ export const GitHubContributions = ({ username, delay = 0 }: GitHubContributions
 
   // Create a simple contribution graph visualization
   const renderContributionGraph = () => {
-    const days = contributions.slice(-365); // Last 365 days
+    const days = contributions;
     const weeks = [];
     
     for (let i = 0; i < days.length; i += 7) {

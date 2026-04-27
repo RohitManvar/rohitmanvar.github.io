@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
 import { ArrowLeft, BookOpen, Search, X } from "lucide-react";
 import { DATA } from "@/data/resume";
@@ -33,6 +33,16 @@ export default function BooksPage() {
   const [filter, setFilter] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedBook, setSelectedBook] = useState<BookEntry | null>(null);
+
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (selectedBook) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => { document.body.style.overflow = 'unset'; };
+  }, [selectedBook]);
   
   const categories = ["All", ...Array.from(new Set(allBooks.map((book) => book.genre).filter(Boolean)))];
 
@@ -178,57 +188,63 @@ export default function BooksPage() {
       {/* Book Detail Modal */}
       <AnimatePresence>
         {selectedBook && (
-          <motion.div 
-            initial={{ opacity: 0 }} 
-            animate={{ opacity: 1 }} 
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-background/80 backdrop-blur-sm"
-            onClick={() => setSelectedBook(null)}
-          >
+          <>
+            {/* Backdrop with negative inset to fix edge blurring artifact */}
             <motion.div 
-              initial={{ scale: 0.95, y: 20 }}
-              animate={{ scale: 1, y: 0 }}
-              exit={{ scale: 0.95, y: 20 }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="relative w-full max-w-xl max-h-[90vh] bg-card rounded-2xl shadow-xl border overflow-y-auto flex flex-col sm:flex-row"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button 
-                onClick={() => setSelectedBook(null)}
-                className="absolute top-4 right-4 z-10 p-1.5 bg-black/50 hover:bg-black/70 text-white rounded-full transition-colors sm:text-muted-foreground sm:bg-transparent sm:hover:bg-muted"
+              initial={{ opacity: 0 }} 
+              animate={{ opacity: 1 }} 
+              exit={{ opacity: 0 }}
+              className="fixed inset-[-50px] z-50 bg-background/80 backdrop-blur-md"
+              onClick={() => setSelectedBook(null)}
+            />
+            
+            {/* Modal Content Container */}
+            <div className="fixed inset-0 z-[51] flex items-center justify-center p-4 sm:p-6 pointer-events-none">
+              <motion.div 
+                initial={{ scale: 0.95, y: 20, opacity: 0 }}
+                animate={{ scale: 1, y: 0, opacity: 1 }}
+                exit={{ scale: 0.95, y: 20, opacity: 0 }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                className="relative w-full max-w-xl max-h-[90vh] bg-card rounded-2xl shadow-2xl border overflow-y-auto flex flex-col sm:flex-row pointer-events-auto"
+                onClick={(e) => e.stopPropagation()}
               >
-                <X className="size-5" />
-              </button>
-              
-              <div className="w-full sm:w-2/5 aspect-[2/3] sm:aspect-auto sm:min-h-full relative shrink-0">
-                {selectedBook.cover ? (
-                  <img src={selectedBook.cover} alt={selectedBook.title} className="w-full h-full object-cover" />
-                ) : (
-                  <div className="w-full h-full bg-muted flex items-center justify-center">
-                    <BookOpen className="size-12 text-muted-foreground/50" />
-                  </div>
-                )}
-              </div>
-              
-              <div className="p-6 sm:p-8 flex flex-col w-full justify-center">
-                <span className="inline-block text-[10px] uppercase tracking-widest font-bold text-primary mb-2">
-                  {selectedBook.genre}
-                </span>
-                <h3 className="text-2xl font-bold leading-tight mb-1">{selectedBook.title}</h3>
-                <p className="text-muted-foreground text-sm mb-6">{selectedBook.author}</p>
+                <button 
+                  onClick={() => setSelectedBook(null)}
+                  className="absolute top-4 right-4 z-10 p-1.5 bg-black/50 hover:bg-black/70 text-white rounded-full transition-colors sm:text-muted-foreground sm:bg-transparent sm:hover:bg-muted"
+                >
+                  <X className="size-5" />
+                </button>
                 
-                {selectedBook.view ? (
-                  <div className="prose prose-sm dark:prose-invert">
-                    <p className="italic text-muted-foreground leading-relaxed">
-                      &ldquo;{selectedBook.view}&rdquo;
-                    </p>
-                  </div>
-                ) : (
-                  <p className="text-sm text-muted-foreground/60 italic">No notes added yet.</p>
-                )}
-              </div>
-            </motion.div>
-          </motion.div>
+                <div className="w-full sm:w-2/5 aspect-[2/3] sm:aspect-auto sm:min-h-full relative shrink-0">
+                  {selectedBook.cover ? (
+                    <img src={selectedBook.cover} alt={selectedBook.title} className="w-full h-full object-cover" />
+                  ) : (
+                    <div className="w-full h-full bg-muted flex items-center justify-center">
+                      <BookOpen className="size-12 text-muted-foreground/50" />
+                    </div>
+                  )}
+                </div>
+                
+                <div className="p-6 sm:p-8 flex flex-col w-full justify-center">
+                  <span className="inline-block text-[10px] uppercase tracking-widest font-bold text-primary mb-2">
+                    {selectedBook.genre}
+                  </span>
+                  <h3 className="text-2xl font-bold leading-tight mb-1">{selectedBook.title}</h3>
+                  <p className="text-muted-foreground text-sm mb-6">{selectedBook.author}</p>
+                  
+                  {selectedBook.view ? (
+                    <div className="prose prose-sm dark:prose-invert">
+                      <p className="italic text-muted-foreground leading-relaxed">
+                        &ldquo;{selectedBook.view}&rdquo;
+                      </p>
+                    </div>
+                  ) : (
+                    <p className="text-sm text-muted-foreground/60 italic">No notes added yet.</p>
+                  )}
+                </div>
+              </motion.div>
+            </div>
+          </>
         )}
       </AnimatePresence>
     </main>
