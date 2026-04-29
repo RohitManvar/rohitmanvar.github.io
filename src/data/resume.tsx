@@ -183,6 +183,37 @@ export const DATA = {
       video: "",
     },
     {
+      title: "Enlyghten — Data Pipeline",
+      href: "https://philo-data-pipeline.vercel.app/",
+      dates: "",
+      active: true,
+      category: "Data Engineering",
+      description:
+        "Scraped and structured data on 300+ philosophers from Wikipedia using Python and BeautifulSoup, covering thinkers from Ancient Greece to modern-day across 25+ categories. Wired up a FastAPI backend with PostgreSQL to serve the cleaned data, and built a Next.js frontend to browse and filter philosophers — all running locally via Docker Compose. Set up GitHub Actions to re-run the pipeline every two days automatically, keeping the database fresh without any manual work.",
+      technologies: [
+        "Python",
+        "FastAPI",
+        "PostgreSQL",
+        "Next.js",
+        "Docker",
+        "GitHub Actions",
+      ],
+      links: [
+        {
+          type: "Live",
+          href: "https://philo-data-pipeline.vercel.app/",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/RohitManvar/Philo-data-pipeline",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "",
+    },
+    {
       title: "Online-Product-Recommendation",
       href: "https://online-product-recommendation.onrender.com/",
       dates: "",
