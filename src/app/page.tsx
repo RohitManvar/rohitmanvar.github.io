@@ -232,7 +232,7 @@ export default function Page() {
                   image={project.image}
                   video={project.video}
                   color={project.color}
-                  portrait={"portrait" in project ? (project.portrait as boolean) : false}
+                  portrait={!!(project as any).portrait}
                   links={project.links}
                 />
               </BlurFade>
