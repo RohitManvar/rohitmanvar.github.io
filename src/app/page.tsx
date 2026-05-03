@@ -103,7 +103,7 @@ export default function Page() {
           <div className="space-y-content-sm">
             <BlurFade delay={BLUR_FADE_DELAY * 11}>
               <p className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
-                I was born and raised in Junagadh. I&apos;ve always been curious about how things work, and early on, I loved exploring the mysteries of life and developing a sense of spiritual awareness.-<br />
+                I was born and raised in Junagadh. I&apos;ve always been curious about how things work, and early on, I loved exploring the mysteries of life and developing a sense of spiritual awareness.<br />
                 <span className="bg-yellow-100 dark:bg-blue-900 dark:text-amber-100 px-1 rounded">
                   "I'm exerting myself to escape the same mind that traps me."
                 </span>

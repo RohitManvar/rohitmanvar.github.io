@@ -22,18 +22,29 @@ export const metadata: Metadata = {
     template: `%s | ${DATA.name}`,
   },
   description: DATA.description,
+  keywords: [
+    "Rohit Manvar",
+    "Portfolio",
+    "Data Engineering",
+    "AI/ML",
+    "Data Scientist",
+    "Software Engineer",
+    "Next.js Portfolio",
+  ],
+  authors: [{ name: DATA.name, url: DATA.url }],
+  creator: DATA.name,
   openGraph: {
-    title: `${DATA.name}`,
+    title: `${DATA.name} | Data Engineering & AI/ML Portfolio`,
     description: DATA.description,
     url: DATA.url,
-    siteName: `${DATA.name}`,
+    siteName: DATA.name,
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: `${DATA.url}/og-image.png`,
-        width: 1200,
-        height: 630,
+        url: "/me.jpg", // Fallback to profile picture since og-image.png doesn't exist
+        width: 800,
+        height: 800,
         alt: DATA.name,
       },
     ],
@@ -50,10 +61,10 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: `${DATA.name}`,
+    title: `${DATA.name} | Data Engineering & AI/ML Portfolio`,
     description: DATA.description,
     card: "summary_large_image",
-    images: [`${DATA.url}/og-image.png`],
+    images: ["/me.jpg"],
   },
   verification: {
     google: "",

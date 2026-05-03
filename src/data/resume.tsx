@@ -1,5 +1,5 @@
 import { Icons } from "@/components/icons";
-import { HomeIcon, Link, NotebookIcon, SparklesIcon, BookOpenIcon } from "lucide-react";
+import { HomeIcon, NotebookIcon, SparklesIcon, BookOpenIcon } from "lucide-react";
 
 export const DATA = {
   name: "Rohit Manvar",
@@ -8,7 +8,7 @@ export const DATA = {
   location: "Vadodara",
   locationLink: "https://www.google.com/maps/place/vadodara",
   description:
-    "A Data Explorer and passionate about AI/Data engineering & Development, Learning new technologies, crafted with care, and building projects with a mindful spirit.",
+    "A Data Explorer and passionate about AI/Data Engineering & Development, Learning new technologies, crafted with care, and building projects with a mindful spirit.",
   summary:
     "",
   avatarUrl: "/me.jpg",
@@ -38,7 +38,7 @@ export const DATA = {
       Linktree: {
         name: "Linktree",
         url: "https://linktr.ee/RohitManvar",
-        icon: Link,
+        icon: Icons.linktree,
         navbar: true,
       },
 
