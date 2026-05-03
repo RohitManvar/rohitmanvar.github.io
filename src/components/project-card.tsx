@@ -20,6 +20,9 @@ interface Props {
   link?: string;
   image?: string;
   video?: string;
+  iframe?: string;
+  color?: string;
+  portrait?: boolean;
   links?: readonly {
     icon: React.ReactNode;
     type: string;
@@ -37,6 +40,9 @@ export function ProjectCard({
   link,
   image,
   video,
+  iframe,
+  color = "#1e293b",
+  portrait = false,
   links,
   className,
 }: Props) {
@@ -52,23 +58,55 @@ export function ProjectCard({
         className="block cursor-pointer"
       >
         {video && (
-          <video
-            src={video}
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="pointer-events-none mx-auto h-40 w-full object-cover object-top" // needed because random black line at bottom of video
-          />
+          <div className="h-48 w-full flex items-center justify-center p-4 overflow-hidden" style={{ backgroundColor: color }}>
+            <video
+              src={video}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="pointer-events-none w-full h-full object-cover object-top rounded-md shadow-lg"
+            />
+          </div>
         )}
-        {image && (
-          <Image
-            src={image}
-            alt={title}
-            width={500}
-            height={300}
-            className="h-40 w-full overflow-hidden object-cover object-top"
-          />
+        {!video && image && !portrait && (
+          <div className="h-48 w-full flex items-center justify-center p-4 overflow-hidden" style={{ backgroundColor: color }}>
+            <Image
+              src={image}
+              alt={title}
+              width={500}
+              height={300}
+              className="w-full h-full object-cover object-top rounded-md shadow-lg"
+            />
+          </div>
+        )}
+        {!video && image && portrait && (
+          <div className="h-56 w-full flex items-center justify-center p-4 overflow-hidden" style={{ backgroundColor: color }}>
+            <Image
+              src={image}
+              alt={title}
+              width={180}
+              height={320}
+              className="h-full w-auto object-cover object-top rounded-xl shadow-2xl"
+            />
+          </div>
+        )}
+        {!video && !image && iframe && (
+          <div className="relative h-48 w-full overflow-hidden" style={{ backgroundColor: color }}>
+            <div className="absolute inset-4 rounded-md shadow-lg overflow-hidden">
+              <iframe
+                src={iframe}
+                title={`${title} preview`}
+                scrolling="no"
+                className="pointer-events-none absolute left-0 top-0 origin-top-left border-0"
+                style={{
+                  width: 1280,
+                  height: 800,
+                  transform: `scale(${500 / 1280})`,
+                }}
+              />
+            </div>
+          </div>
         )}
       </Link>
       <CardHeader>

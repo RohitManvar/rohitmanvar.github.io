@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/me.jpg", // Fallback to profile picture since og-image.png doesn't exist
+        url: "/me.jpg",
         width: 800,
         height: 800,
         alt: DATA.name,

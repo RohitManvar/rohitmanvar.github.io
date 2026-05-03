@@ -232,6 +232,8 @@ export default function Page() {
                   tags={project.technologies}
                   image={project.image}
                   video={project.video}
+                  color={project.color}
+                  portrait={project.portrait}
                   links={project.links}
                 />
               </BlurFade>

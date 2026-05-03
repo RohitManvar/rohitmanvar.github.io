@@ -1,18 +1,19 @@
-import { getBlogPosts } from "@/data/blog";
+import { MetadataRoute } from "next";
 import { DATA } from "@/data/resume";
 
-export default async function sitemap() {
-  const posts = await getBlogPosts();
-
-  const blogPosts = posts.map((post) => ({
-    url: `${DATA.url}/blog/${post.slug}`,
-    lastModified: post.metadata.publishedAt,
-  }));
-
-  const routes = ["", "/blog", "/books"].map((route) => ({
-    url: `${DATA.url}${route}`,
-    lastModified: new Date().toISOString().split("T")[0],
-  }));
-
-  return [...routes, ...blogPosts];
+export default function sitemap(): MetadataRoute.Sitemap {
+  return [
+    {
+      url: DATA.url,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 1,
+    },
+    {
+      url: `${DATA.url}/books`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+  ];
 }

@@ -26,7 +26,7 @@ export function ContactForm({ delay = 0 }: { delay?: number }) {
       return;
     }
 
-    formData.append("access_key", "226905d5-b6b7-4c70-ad91-0f5c7ae81183");
+    formData.append("access_key", process.env.NEXT_PUBLIC_WEB3FORMS_KEY ?? "");
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {

@@ -9,7 +9,7 @@ export function ModeToggle() {
 
   return (
     <Button
-      variant="ghost"
+      variant="outline"
       type="button"
       size="icon"
       className="px-2"
