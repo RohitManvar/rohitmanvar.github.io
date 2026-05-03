@@ -3,7 +3,6 @@
 import dynamic from "next/dynamic";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { DownloadIcon } from "lucide-react";
 
 const GitHubContributions = dynamic(() => import("@/components/github-contributions").then(mod => mod.GitHubContributions), { ssr: false });
 const TechStack = dynamic(() => import("@/components/tech-stack").then(mod => mod.TechStack), { ssr: false });
@@ -233,7 +232,7 @@ export default function Page() {
                   image={project.image}
                   video={project.video}
                   color={project.color}
-                  portrait={project.portrait}
+                  portrait={"portrait" in project ? (project.portrait as boolean) : false}
                   links={project.links}
                 />
               </BlurFade>

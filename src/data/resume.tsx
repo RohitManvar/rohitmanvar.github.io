@@ -150,6 +150,7 @@ export const DATA = {
       image: "/enlyghten.png",
       video: "",
       color: "#ffffff",
+      portrait: false,
     },
     {
       title: "PopcornS — Movie Recommendation",
@@ -185,6 +186,7 @@ export const DATA = {
       image: "/popcorns.png",
       video: "",
       color: "#ffffff",
+      portrait: false,
     },
     {
       title: "Vibe2Value",
@@ -218,6 +220,7 @@ export const DATA = {
       image: "/vibe2value.png",
       video: "",
       color: "#ffffff",
+      portrait: false,
     },
     {
       title: "Custom ELT Project",
@@ -245,6 +248,7 @@ export const DATA = {
       image: "/elt_pipeline.png",
       video: "",
       color: "#ffffff",
+      portrait: false,
     },
     {
       title: "BookNest",
@@ -303,6 +307,7 @@ export const DATA = {
       image: "/weatherly.png",
       video: "",
       color: "#ffffff",
+      portrait: false,
     },
   ],
   books: [
