@@ -8,7 +8,6 @@ const GitHubContributions = dynamic(() => import("@/components/github-contributi
 const TechStack = dynamic(() => import("@/components/tech-stack").then(mod => mod.TechStack), { ssr: false });
 const TimelineItem = dynamic(() => import("@/components/resume-card").then(mod => mod.TimelineItem), { ssr: false });
 const ContactOrbiting = dynamic(() => import("@/components/contact-orbiting").then(mod => mod.ContactOrbiting), { ssr: false });
-const ContactForm = dynamic(() => import("@/components/contact-form").then(mod => mod.ContactForm), { ssr: false });
 const Globe3D = dynamic(() => import("@/components/globe-3d").then(mod => mod.Globe3D), { ssr: false });
 
 
@@ -268,9 +267,6 @@ export default function Page() {
         </BlurFade>
       </section>
       <ContactOrbiting delay={BLUR_FADE_DELAY * 33} />
-      <section id="contact" className="mb-section-lg pb-20">
-        <ContactForm delay={BLUR_FADE_DELAY * 34} />
-      </section>
     </main>
   );
 }
