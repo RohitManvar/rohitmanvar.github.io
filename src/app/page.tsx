@@ -3,20 +3,44 @@
 import dynamic from "next/dynamic";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
-const GitHubContributions = dynamic(() => import("@/components/github-contributions").then(mod => mod.GitHubContributions), { ssr: false });
-const TechStack = dynamic(() => import("@/components/tech-stack").then(mod => mod.TechStack), { ssr: false });
-const TimelineItem = dynamic(() => import("@/components/resume-card").then(mod => mod.TimelineItem), { ssr: false });
-const ContactOrbiting = dynamic(() => import("@/components/contact-orbiting").then(mod => mod.ContactOrbiting), { ssr: false });
-const Globe3D = dynamic(() => import("@/components/globe-3d").then(mod => mod.Globe3D), { ssr: false });
-
-
-const BlurFade = dynamic(() => import("@/components/magicui/blur-fade").then(mod => mod.default), { ssr: false });
-const BlurFadeText = dynamic(() => import("@/components/magicui/blur-fade-text").then(mod => mod.default), { ssr: false });
-const ProjectCard = dynamic(() => import("@/components/project-card").then(mod => mod.ProjectCard), { ssr: false });
-const TableOfContents = dynamic(() => import("@/components/table-of-contents").then(mod => mod.TableOfContents), { ssr: false });
+// Direct imports — these all use standard React/framer-motion hooks that work with SSR
+import BlurFade from "@/components/magicui/blur-fade";
+import BlurFadeText from "@/components/magicui/blur-fade-text";
+import { ProjectCard } from "@/components/project-card";
+import { TableOfContents } from "@/components/table-of-contents";
+import { TimelineItem } from "@/components/resume-card";
+import { TechStack } from "@/components/tech-stack";
+import { ContactOrbiting } from "@/components/contact-orbiting";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { DATA } from "@/data/resume";
+
+// Only these need ssr:false — they use browser-only APIs (external geo fetch, GitHub API)
+const GitHubContributions = dynamic(
+  () => import("@/components/github-contributions").then(mod => mod.GitHubContributions),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="space-y-4 w-full py-8 animate-pulse">
+        <div className="h-8 w-64 bg-muted rounded-md mx-auto" />
+        <div className="h-4 w-80 bg-muted rounded-md mx-auto" />
+        <div className="h-32 bg-muted rounded-lg mx-auto max-w-2xl w-full" />
+      </div>
+    ),
+  }
+);
+const Globe3D = dynamic(
+  () => import("@/components/globe-3d").then(mod => mod.Globe3D),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="w-full h-[300px] flex items-center justify-center">
+        <div className="w-48 h-48 rounded-full bg-muted animate-pulse" />
+      </div>
+    ),
+  }
+);
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -257,12 +281,12 @@ export default function Page() {
                 A personal collection of readings and ideas that shape my worldview.
               </p>
             </div>
-            <a
+            <Link
               href="/books"
               className="inline-flex items-center gap-1.5 text-sm font-medium underline underline-offset-4 hover:text-foreground text-muted-foreground transition-colors"
             >
               View all {(DATA.books as unknown as { books: unknown[] }[]).reduce((acc, g) => acc + g.books.length, 0)} books →
-            </a>
+            </Link>
           </div>
         </BlurFade>
       </section>

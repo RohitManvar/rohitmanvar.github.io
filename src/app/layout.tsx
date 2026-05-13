@@ -1,4 +1,5 @@
 import Navbar from "@/components/navbar";
+import { ClientLayout } from "@/components/client-layout";
 
 import { ThemeProvider } from "@/components/theme-provider";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -87,7 +88,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <TooltipProvider delayDuration={0}>
             <div className="max-w-2xl mx-auto px-container-padding">
-              {children}
+              <ClientLayout>{children}</ClientLayout>
             </div>
 
             <Navbar />

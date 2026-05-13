@@ -1,16 +1,14 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import { useState, useMemo, useEffect } from "react";
 import Link from "next/link";
 import { ArrowLeft, BookOpen, Search, X } from "lucide-react";
 import { DATA } from "@/data/resume";
 import { motion, AnimatePresence } from "framer-motion";
+import BlurFade from "@/components/magicui/blur-fade";
+import BlurFadeText from "@/components/magicui/blur-fade-text";
 
-const BlurFade = dynamic(() => import("@/components/magicui/blur-fade").then(mod => mod.default), { ssr: false });
-const BlurFadeText = dynamic(() => import("@/components/magicui/blur-fade-text").then(mod => mod.default), { ssr: false });
-
-const BLUR_FADE_DELAY = 0.04;
+const BLUR_FADE_DELAY = 0.03;
 
 type BookEntry = {
   title: string;
@@ -142,7 +140,7 @@ export default function BooksPage() {
         {filteredBooks.length > 0 ? (
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
             {filteredBooks.map((book, id) => (
-              <BlurFade key={book.title + book.author} delay={BLUR_FADE_DELAY * 7 + id * 0.05}>
+              <BlurFade key={book.title + book.author} delay={BLUR_FADE_DELAY * 3 + Math.min(id, 6) * 0.03}>
                 <div 
                   className="group flex flex-col gap-3 h-full cursor-pointer"
                   onClick={() => setSelectedBook(book)}
@@ -152,6 +150,9 @@ export default function BooksPage() {
                       <img
                         src={book.cover}
                         alt={book.title}
+                        width={200}
+                        height={300}
+                        decoding="async"
                         className="h-full w-full object-cover transition-all duration-300 group-hover:scale-105"
                         loading="lazy"
                       />
@@ -217,7 +218,7 @@ export default function BooksPage() {
                 
                 <div className="w-full sm:w-2/5 aspect-[2/3] sm:aspect-auto sm:min-h-full relative shrink-0">
                   {selectedBook.cover ? (
-                    <img src={selectedBook.cover} alt={selectedBook.title} className="w-full h-full object-cover" />
+                    <img src={selectedBook.cover} alt={selectedBook.title} width={300} height={450} decoding="async" className="w-full h-full object-cover" />
                   ) : (
                     <div className="w-full h-full bg-muted flex items-center justify-center">
                       <BookOpen className="size-12 text-muted-foreground/50" />
