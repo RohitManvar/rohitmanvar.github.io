@@ -55,12 +55,28 @@ export const DATA = {
     {
       company: "Faber Infinite",
       href: "https://faberinfinite.com/",
-      badges: [],
+      badges: ["Full-time"],
       location: "Vadodara, India",
-      title: "Software Engineer Intern (Data & Analytics Systems)",
+      title: "Software Developer (Automation Systems)",
+      logoUrl: "/faber.jpg",
+      start: "Jun 2026",
+      end: "Present",
+      bullets: [
+        "Developed a Value Stream Mapping (VSM) Automation Tool, digitizing Lean workflows and reducing manual data entry effort by 40%.",
+        "Designed and optimized PostgreSQL schemas and FastAPI-based backend APIs, improving report generation speed by 3x.",
+        "Engineered data processing and analytics logic to compute production metrics, enabling real-time insights for 5+ departments.",
+        "Owned the end-to-end system including requirements gathering, development, testing, and deployment to production."
+      ],
+    },
+    {
+      company: "Faber Infinite",
+      href: "https://faberinfinite.com/",
+      badges: ["Internship"],
+      location: "Vadodara, India",
+      title: "Software Engineer Intern (Automation Systems)",
       logoUrl: "/faber.jpg",
       start: "Jan 2026",
-      end: "Present",
+      end: "May 2026",
       bullets: [
         "Developed a Value Stream Mapping (VSM) Automation Tool, digitizing Lean workflows and reducing manual data entry effort by 40%.",
         "Designed and optimized PostgreSQL schemas and FastAPI-based backend APIs, improving report generation speed by 3x.",
@@ -71,7 +87,7 @@ export const DATA = {
     {
       company: "Plasmid",
       href: "https://plasmid.co.in/",
-      badges: [],
+      badges: ["Internship"],
       location: "Remote",
       title: "Data Science Intern",
       logoUrl: "/plasmid.jpg",
@@ -86,7 +102,7 @@ export const DATA = {
     {
       company: "GM EXPORTS",
       href: "",
-      badges: [],
+      badges: ["Full-time"],
       location: "Rajkot",
       title: "Human Resources Assistant",
       logoUrl: "/gm2.png",

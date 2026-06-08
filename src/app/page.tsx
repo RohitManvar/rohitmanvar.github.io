@@ -73,11 +73,11 @@ export default function Page() {
                 delay={BLUR_FADE_DELAY * 2}
                 text={DATA.description}
               />
-              
+
               <BlurFade delay={BLUR_FADE_DELAY * 2.5}>
                 <div className="pt-4 flex">
                   <div className="inline-flex items-center text-sm font-medium text-muted-foreground font-mono">
-                    {"> Available for Opportunities".split("").map((char, index) => (
+                    {"> Open to Opportunities".split("").map((char, index) => (
                       <motion.span
                         key={index}
                         initial={{ opacity: 0 }}
@@ -222,7 +222,7 @@ export default function Page() {
                 </p>
               </div>
             </div>
-            
+
             <div className="flex flex-wrap justify-center gap-2 mt-6">
               {categories.map((category) => (
                 <button

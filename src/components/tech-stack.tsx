@@ -220,7 +220,7 @@ export const TechStack = ({ delay = 0 }: TechStackProps) => {
                 x: {
                   repeat: Infinity,
                   repeatType: "loop",
-                  duration: 45,
+                  duration: 20,
                   ease: "linear",
                 },
               }}

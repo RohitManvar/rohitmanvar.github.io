@@ -42,10 +42,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/me.jpg",
-        width: 800,
-        height: 800,
-        alt: DATA.name,
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: `${DATA.name} — Portfolio`,
       },
     ],
   },
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     title: `${DATA.name} | Data Engineering & AI/ML Portfolio`,
     description: DATA.description,
     card: "summary_large_image",
-    images: ["/me.jpg"],
+    images: ["/og.png"],
   },
   verification: {
     google: "",
