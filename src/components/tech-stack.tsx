@@ -211,24 +211,15 @@ export const TechStack = ({ delay = 0 }: TechStackProps) => {
             <div className="absolute right-0 top-0 z-10 h-full w-32 bg-gradient-to-l from-background via-background/80 to-transparent" />
 
             {/* Floating logos */}
-            <motion.div
-              className="flex items-center"
-              animate={{
-                x: [0, -50 + "%"],
-              }}
-              transition={{
-                x: {
-                  repeat: Infinity,
-                  repeatType: "loop",
-                  duration: 20,
-                  ease: "linear",
-                },
-              }}
+            <div
+              className="flex items-center w-max flex-nowrap animate-marquee hover:[animation-play-state:paused]"
             >
               {duplicatedTechStack.map((tech, index) => (
-                <TechItem key={`${tech.name}-${index}`} tech={tech} />
+                <div key={`${tech.name}-${index}`} className="shrink-0">
+                  <TechItem tech={tech} />
+                </div>
               ))}
-            </motion.div>
+            </div>
           </div>
 
           {/* Icon-only Show All Button */}

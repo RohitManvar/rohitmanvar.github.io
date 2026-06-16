@@ -267,6 +267,37 @@ export const DATA = {
       portrait: false,
     },
     {
+      title: "D.Ops",
+      href: "https://d-ops.vercel.app/",
+      dates: "",
+      active: true,
+      category: "Web",
+      description:
+        "A daily operations workspace. Plan projects with advanced Gantt charts, author rich documents, and manage sprints with a seamless, responsive UI. Built with React 19, Vite, and Supabase for real-time data sync and secure authentication.",
+      technologies: [
+        "React",
+        "Vite",
+        "Tailwind CSS",
+        "Supabase",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://d-ops.vercel.app/",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/RohitManvar/D.Ops",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "/d.ops.png",
+      video: "",
+      color: "#ffffff",
+      portrait: false,
+    },
+    {
       title: "BookNest",
       href: "https://drive.google.com/file/d/1YnKJn6uTOcQwPDmiJw1CnP1YSrEdlKIL/view?usp=drive_link",
       dates: "",
