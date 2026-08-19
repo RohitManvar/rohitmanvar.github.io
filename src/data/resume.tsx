@@ -73,7 +73,7 @@ export const DATA = {
       href: "https://faberinfinite.com/",
       badges: ["Internship"],
       location: "Vadodara, India",
-      title: "Software Engineer Intern (Automation Systems)",
+      title: "Software Developer Intern (Automation Systems)",
       logoUrl: "/faber.jpg",
       start: "Jan 2026",
       end: "May 2026",
