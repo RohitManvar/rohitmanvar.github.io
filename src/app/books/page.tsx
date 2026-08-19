@@ -44,12 +44,14 @@ export default function BooksPage() {
   
   const categories = ["All", ...Array.from(new Set(allBooks.map((book) => book.genre).filter(Boolean)))];
 
-  const filteredBooks = allBooks.filter((book) => {
-    const matchesFilter = filter === "All" || book.genre === filter;
-    const matchesSearch = book.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                          book.author.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesFilter && matchesSearch;
-  });
+  const filteredBooks = allBooks
+    .filter((book) => {
+      const matchesFilter = filter === "All" || book.genre === filter;
+      const matchesSearch = book.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                            book.author.toLowerCase().includes(searchQuery.toLowerCase());
+      return matchesFilter && matchesSearch;
+    })
+    .sort((a, b) => a.genre.localeCompare(b.genre) || a.title.localeCompare(b.title));
 
   // Calculate top genre
   const topGenre = useMemo(() => {
@@ -140,7 +142,7 @@ export default function BooksPage() {
         {filteredBooks.length > 0 ? (
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
             {filteredBooks.map((book, id) => (
-              <BlurFade key={book.title + book.author} delay={BLUR_FADE_DELAY * 3 + Math.min(id, 6) * 0.03}>
+              <BlurFade key={book.title + book.author} delay={BLUR_FADE_DELAY * 3 + Math.min(id, 2) * 0.03}>
                 <div 
                   className="group flex flex-col gap-3 h-full cursor-pointer"
                   onClick={() => setSelectedBook(book)}
