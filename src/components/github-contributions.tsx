@@ -35,12 +35,9 @@ export const GitHubContributions = ({ username, delay = 0 }: GitHubContributions
     const fetchContributions = async () => {
       try {
         const currentDate = new Date();
-        let startYear = currentDate.getFullYear();
-        // If the current month is before August (month index 7), start from August of last year
-        if (currentDate.getMonth() < 7) {
-          startYear -= 1;
-        }
-        const fromDate = `${startYear}-08-01T00:00:00Z`;
+        const oneYearAgo = new Date(currentDate);
+        oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
+        const fromDate = oneYearAgo.toISOString();
         const toDate = currentDate.toISOString();
 
         const query = `
