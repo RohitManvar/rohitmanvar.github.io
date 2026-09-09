@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, Component } from "react";
+import React, { useState, useEffect, useRef, Component, memo } from "react";
 import { ComposableMap, Geographies, Geography, Sphere, Marker } from "react-simple-maps";
 import { MapPin } from "lucide-react";
 
@@ -25,7 +25,7 @@ class GlobeErrorBoundary extends Component<
   }
 }
 
-function GlobeMap({ rotation }: { rotation: number }) {
+const GlobeMap = memo(function GlobeMap({ rotation }: { rotation: number }) {
   return (
     <ComposableMap
       projection="geoOrthographic"
@@ -62,19 +62,49 @@ function GlobeMap({ rotation }: { rotation: number }) {
       </Marker>
     </ComposableMap>
   );
-}
+});
+
+// The globe's geography data is expensive to re-process (react-simple-maps
+// re-derives paths from the TopoJSON on every render), so we drive rotation
+// as a low-frequency state update instead of a per-frame one — a visually
+// smooth rotation only needs a handful of steps per second, not 60.
+const ROTATION_STEP_MS = 100;
 
 export function Globe3D() {
   const [rotation, setRotation] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    let frameId: number;
-    const rotate = () => {
-      setRotation((r) => (r + 0.3) % 360);
-      frameId = requestAnimationFrame(rotate);
+    const container = containerRef.current;
+    if (!container) return;
+
+    let intervalId: ReturnType<typeof setInterval> | null = null;
+
+    const start = () => {
+      if (intervalId) return;
+      intervalId = setInterval(() => {
+        setRotation((r) => (r + 1) % 360);
+      }, ROTATION_STEP_MS);
     };
-    frameId = requestAnimationFrame(rotate);
-    return () => cancelAnimationFrame(frameId);
+    const stop = () => {
+      if (intervalId) {
+        clearInterval(intervalId);
+        intervalId = null;
+      }
+    };
+
+    // Pause the animation entirely when the globe is scrolled out of view
+    // so it doesn't compete with route/page-transition work elsewhere.
+    const observer = new IntersectionObserver(
+      ([entry]) => (entry.isIntersecting ? start() : stop()),
+      { threshold: 0 }
+    );
+    observer.observe(container);
+
+    return () => {
+      stop();
+      observer.disconnect();
+    };
   }, []);
 
   const locationPin = (
@@ -86,7 +116,7 @@ export function Globe3D() {
   );
 
   return (
-    <div className="w-full relative mt-8 flex flex-col items-center">
+    <div ref={containerRef} className="w-full relative mt-8 flex flex-col items-center">
       <div className="w-full h-[300px] relative rounded-xl overflow-hidden bg-transparent flex items-center justify-center">
         <div className="w-[450px] h-[450px]">
           <GlobeErrorBoundary fallback={

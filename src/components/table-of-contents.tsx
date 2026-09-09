@@ -11,9 +11,12 @@ const SECTIONS = [
   { id: "about", label: "About" },
   { id: "work", label: "Work" },
   { id: "education", label: "Education" },
+  { id: "featured-systems", label: "Systems" },
   { id: "tech-stack", label: "Tech Stack" },
+  { id: "skills", label: "Skills" },
   { id: "projects", label: "Projects" },
   { id: "github", label: "GitHub" },
+  { id: "why-hire-me", label: "Why Me" },
   { id: "books", label: "Books" },
   { id: "contact", label: "Contact" },
 ];
@@ -118,8 +121,8 @@ export function TableOfContents() {
                   className={cn(
                     "w-2.5 h-2.5 rounded-full bg-gray-300 dark:bg-gray-600 transition-all duration-300",
                     activeSection === section.id
-                      ? "bg-blue-400 scale-125"
-                      : "group-hover:bg-blue-300"
+                      ? "bg-brand scale-125"
+                      : "group-hover:bg-brand/60"
                   )}
                 />
               </a>
@@ -165,7 +168,7 @@ export function TableOfContents() {
                       className={cn(
                         "flex items-center px-3 py-2 text-sm rounded-md transition-colors",
                         activeSection === section.id
-                          ? "bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 font-medium"
+                          ? "bg-brand/10 text-brand font-medium"
                           : "text-foreground hover:bg-muted"
                       )}
                     >

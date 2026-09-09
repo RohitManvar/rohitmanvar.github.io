@@ -1,18 +1,21 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
 // Direct imports — these all use standard React/framer-motion hooks that work with SSR
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
-import { ProjectCard } from "@/components/project-card";
+import { ProjectShowcaseRow } from "@/components/project-showcase-row";
 import { TableOfContents } from "@/components/table-of-contents";
 import { TimelineItem } from "@/components/resume-card";
 import { TechStack } from "@/components/tech-stack";
+import { SkillsGrouped } from "@/components/skills-grouped";
+import { FeaturedSystems } from "@/components/featured-systems";
+import { WhatIWorkOn, WhyHireMe } from "@/components/work-focus";
 import { ContactOrbiting } from "@/components/contact-orbiting";
+import { LazyBoundary } from "@/components/lazy-boundary";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { DATA } from "@/data/resume";
 
@@ -45,14 +48,6 @@ const Globe3D = dynamic(
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
-  const [filter, setFilter] = useState("All");
-
-  const categories = ["All", ...Array.from(new Set(DATA.projects.map((project) => project.category).filter(Boolean)))];
-
-  const filteredProjects = DATA.projects.filter(
-    (project) => filter === "All" || project.category === filter
-  );
-
   return (
     <main className="flex flex-col min-h-[100dvh] py-section-md">
       <TableOfContents />
@@ -62,6 +57,7 @@ export default function Page() {
           <div className="gap-2 flex justify-between items-center">
             <div className="flex-col flex flex-1 space-y-1.5">
               <BlurFadeText
+                as="h1"
                 delay={BLUR_FADE_DELAY * 1.2}
                 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none"
                 yOffset={8}
@@ -117,6 +113,10 @@ export default function Page() {
         </div>
       </section>
 
+      <section id="focus" className="mb-section-lg">
+        <WhatIWorkOn delay={BLUR_FADE_DELAY * 9} />
+      </section>
+
       <section id="about" className="mb-section-lg">
         <div className="space-y-content-md">
           <BlurFade delay={BLUR_FADE_DELAY * 10}>
@@ -147,7 +147,15 @@ export default function Page() {
               </p>
             </BlurFade>
             <BlurFade delay={BLUR_FADE_DELAY * 16}>
-              <Globe3D />
+              <LazyBoundary
+                fallback={
+                  <div className="w-full h-[300px] flex items-center justify-center text-muted-foreground text-sm">
+                    📍 Vadodara, India
+                  </div>
+                }
+              >
+                <Globe3D />
+              </LazyBoundary>
             </BlurFade>
           </div>
         </div>
@@ -171,6 +179,7 @@ export default function Page() {
                   badges={work.badges}
                   period={`${work.start} - ${work.end ?? "Present"}`}
                   bullets={work.bullets}
+                  liveSystems={(work as any).liveSystems}
                   isLast={id === DATA.technicalExperience.length - 1}
                   defaultExpanded={id === 0}
                 />
@@ -203,8 +212,16 @@ export default function Page() {
         </div>
       </section>
 
+      <section id="featured-systems" className="mb-section-lg">
+        <FeaturedSystems delay={BLUR_FADE_DELAY * 20.5} />
+      </section>
+
       <section id="tech-stack" className="mb-section-lg">
         <TechStack delay={BLUR_FADE_DELAY * 21} />
+      </section>
+
+      <section id="skills" className="mb-section-lg">
+        <SkillsGrouped delay={BLUR_FADE_DELAY * 21.5} />
       </section>
 
       <section id="projects" className="mb-section-lg">
@@ -222,40 +239,21 @@ export default function Page() {
                 </p>
               </div>
             </div>
-
-            <div className="flex flex-wrap justify-center gap-2 mt-6">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => setFilter(category)}
-                  className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${
-                    filter === category
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-muted text-muted-foreground hover:bg-muted/80"
-                  }`}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
           </BlurFade>
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto mt-6">
-            {filteredProjects.map((project, id) => (
+          <div className="max-w-3xl mx-auto space-y-16 mt-6">
+            {DATA.projects.map((project, id) => (
               <BlurFade
                 key={project.title}
                 delay={BLUR_FADE_DELAY * 23 + id * 0.05}
               >
-                <ProjectCard
+                <ProjectShowcaseRow
                   href={project.href}
-                  key={project.title}
                   title={project.title}
                   description={project.description}
-                  dates={project.dates}
                   tags={project.technologies}
                   image={project.image}
-                  video={project.video}
                   color={project.color}
-                  portrait={!!(project as any).portrait}
+                  portrait={project.portrait}
                   links={project.links}
                 />
               </BlurFade>
@@ -267,7 +265,19 @@ export default function Page() {
 
 
       <section id="github" className="mb-section-lg">
-        <GitHubContributions username="RohitManvar" delay={BLUR_FADE_DELAY * 24} />
+        <LazyBoundary
+          fallback={
+            <p className="text-center text-sm text-muted-foreground py-8">
+              GitHub activity is unavailable right now.
+            </p>
+          }
+        >
+          <GitHubContributions username="RohitManvar" delay={BLUR_FADE_DELAY * 24} />
+        </LazyBoundary>
+      </section>
+
+      <section id="why-hire-me" className="mb-section-lg">
+        <WhyHireMe delay={BLUR_FADE_DELAY * 26} />
       </section>
 
       <section id="books" className="mb-section-lg">
@@ -283,7 +293,7 @@ export default function Page() {
             </div>
             <Link
               href="/books"
-              className="inline-flex items-center gap-1.5 text-sm font-medium underline underline-offset-4 hover:text-foreground text-muted-foreground transition-colors"
+              className="inline-flex items-center gap-1.5 text-sm font-medium underline underline-offset-4 hover:text-brand text-muted-foreground transition-colors"
             >
               View all {(DATA.books as unknown as { books: unknown[] }[]).reduce((acc, g) => acc + g.books.length, 0)} books →
             </Link>

@@ -31,6 +31,7 @@ interface TimelineItemProps {
   period: string;
   description?: string;
   bullets?: readonly string[];
+  liveSystems?: readonly { label: string; href: string }[];
   isLast?: boolean;
   defaultExpanded?: boolean;
 }
@@ -45,6 +46,7 @@ export const TimelineItem = ({
   period,
   description,
   bullets,
+  liveSystems,
   isLast = false,
   defaultExpanded = false,
 }: TimelineItemProps) => {
@@ -57,32 +59,15 @@ export const TimelineItem = ({
     }
   };
 
-  const content = (
-    <div className="relative pl-6 sm:pl-8 pb-8 sm:pb-12 last:pb-0">
-      {/* Timeline line */}
-      {!isLast && (
-        <div className="absolute left-4 sm:left-6 top-10 sm:top-12 bottom-0 w-0.5 bg-gradient-to-b from-border to-muted/30" />
-      )}
-      
-      {/* Timeline dot with logo */}
-      <div className="absolute left-0 top-0 w-8 h-8 sm:w-12 sm:h-12 rounded-full border-2 border-background shadow-lg bg-background flex items-center justify-center">
-        <Avatar className="size-6 sm:size-10 border">
-          <AvatarImage
-            src={logoUrl}
-            alt={altText}
-            className="object-contain"
-          />
-          <AvatarFallback className="text-xs">{altText[0]}</AvatarFallback>
-        </Avatar>
-      </div>
-
+  const cardBody = (
+    <>
       {/* Content */}
       <div className="group cursor-pointer" onClick={handleClick}>
         <div className="bg-card border border-border/50 rounded-xl p-4 sm:p-6 shadow-sm hover:shadow-md hover:border-border transition-all duration-300">
           {/* Header */}
           <div className="space-y-3 sm:space-y-0 sm:flex sm:items-start sm:justify-between sm:gap-4 mb-3">
             <div className="flex-1">
-              <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors duration-200 leading-tight">
+              <h3 className="font-semibold text-foreground group-hover:text-brand transition-colors duration-200 leading-tight">
                 {title}
               </h3>
               {subtitle && (
@@ -155,18 +140,54 @@ export const TimelineItem = ({
           )}
         </div>
       </div>
-    </div>
+    </>
   );
 
-  if (href && href !== "#") {
-    return (
-      <Link href={href} target="_blank" rel="noopener noreferrer">
-        {content}
-      </Link>
-    );
-  }
+  return (
+    <div className="relative pl-6 sm:pl-8 pb-8 sm:pb-12 last:pb-0">
+      {/* Timeline line */}
+      {!isLast && (
+        <div className="absolute left-4 sm:left-6 top-10 sm:top-12 bottom-0 w-0.5 bg-gradient-to-b from-border to-muted/30" />
+      )}
 
-  return content;
+      {/* Timeline dot with logo */}
+      <div className="absolute left-0 top-0 w-8 h-8 sm:w-12 sm:h-12 rounded-full border-2 border-background shadow-lg bg-background flex items-center justify-center">
+        <Avatar className="size-6 sm:size-10 border">
+          <AvatarImage
+            src={logoUrl}
+            alt={altText}
+            className="object-contain"
+          />
+          <AvatarFallback className="text-xs">{altText[0]}</AvatarFallback>
+        </Avatar>
+      </div>
+
+      {href && href !== "#" ? (
+        <Link href={href} target="_blank" rel="noopener noreferrer">
+          {cardBody}
+        </Link>
+      ) : (
+        cardBody
+      )}
+
+      {liveSystems && liveSystems.length > 0 && (
+        <div className="flex flex-wrap items-center gap-2 mt-3">
+          <span className="text-xs font-medium text-muted-foreground">Live systems:</span>
+          {liveSystems.map((system) => (
+            <a
+              key={system.href}
+              href={system.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 text-xs font-medium px-2 py-1 rounded-full bg-muted hover:bg-muted/70 text-foreground transition-colors"
+            >
+              {system.label} ↗
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  );
 };
 
 export const ResumeCard = ({

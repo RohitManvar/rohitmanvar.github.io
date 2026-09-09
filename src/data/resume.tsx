@@ -1,5 +1,5 @@
 import { Icons } from "@/components/icons";
-import { HomeIcon, NotebookIcon, SparklesIcon, BookOpenIcon } from "lucide-react";
+import { HomeIcon, NotebookIcon, SparklesIcon, BookOpenIcon, FeatherIcon } from "lucide-react";
 
 export const DATA = {
   name: "Rohit Manvar",
@@ -16,6 +16,7 @@ export const DATA = {
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "/books", icon: BookOpenIcon, label: "Books" },
+    { href: "/philosophy", icon: FeatherIcon, label: "Philosophy" },
     // { href: "/blog", icon: NotebookIcon, label: "Blog" },
     // { href: "/showcase", icon: SparklesIcon, label: "Showcase" },
   ],
@@ -51,9 +52,83 @@ export const DATA = {
     },
   },
 
+  whatIWorkOn: [
+    "AI & Data Applications",
+    "Backend & API Development",
+    "SaaS Product Development",
+    "Cloud Infrastructure & Deployment",
+    "Automation Systems",
+  ],
+
+  whyHireMe: [
+    "Experience shipping production software used by consultants and clients",
+    "Strong backend and database skills — FastAPI, PostgreSQL, schema design",
+    "End-to-end ownership: requirements, development, testing, deployment",
+    "Comfortable across the stack — from data pipelines to React frontends",
+    "Cloud deployment and infrastructure experience beyond just writing code",
+  ],
+
+  productionSystems: [
+    {
+      title: "LFD",
+      href: "https://lfd.faberinfinite.com",
+      description:
+        "The informational website for Faber Infinite's Lean Facility Design (LFD) Framework — walks visitors through the framework's flow, modules, and value proposition for manufacturing and operational excellence clients.",
+      contributions: [
+        "Built and shipped the Next.js frontend showcasing the LFD Framework's flow and information",
+      ],
+      tech: ["Next.js", "React", "TypeScript"],
+    },
+    {
+      title: "LFD Cloud",
+      href: "https://lfdcloud.faberinfinite.com",
+      description:
+        "The hosted, AI-enabled version of LFD used across client sites — combines a RAG-based knowledge layer with real-time production metrics to cut down on manual reporting.",
+      contributions: [
+        "Designed PostgreSQL schemas and FastAPI endpoints, containerized with Docker",
+        "Integrated AI/RAG features on top of the core platform, improving report generation speed by 3x",
+      ],
+      tech: ["React", "FastAPI", "PostgreSQL", "Docker", "RAG"],
+    },
+    {
+      title: "LFD Studio",
+      href: "https://lfdstudio.faberinfinite.com",
+      description:
+        "The workspace layer of the LFD suite, where Lean workflows are configured and iterated on before rolling out to client teams.",
+      contributions: [
+        "Built the React frontend and FastAPI backend, containerized with Docker",
+        "Designed the PostgreSQL data model for workflow configuration",
+      ],
+      tech: ["React", "FastAPI", "PostgreSQL", "Docker"],
+    },
+  ],
+
+  skillGroups: [
+    {
+      category: "AI & Data",
+      skills: ["Python", "Pandas", "NumPy", "Scikit-learn", "TensorFlow", "FAISS", "RAG", "LLM Integration"],
+    },
+    {
+      category: "Backend",
+      skills: ["FastAPI", "Flask", "REST APIs", "SQLAlchemy"],
+    },
+    {
+      category: "Databases",
+      skills: ["PostgreSQL", "MySQL", "Firebase", "Supabase", "pgvector"],
+    },
+    {
+      category: "Cloud & DevOps",
+      skills: ["Docker", "Nginx", "GitHub Actions", "CI/CD", "Linux VPS", "GCP", "AWS"],
+    },
+    {
+      category: "Frontend & Mobile",
+      skills: ["React", "Next.js", "Tailwind CSS", "Flutter"],
+    },
+  ],
+
   technicalExperience: [
     {
-      company: "Faber Infinite",
+      company: "Faber Infinite Consulting",
       href: "https://faberinfinite.com/",
       badges: ["Full-time"],
       location: "Vadodara, India",
@@ -62,10 +137,18 @@ export const DATA = {
       start: "Jun 2026",
       end: "Present",
       bullets: [
-        "Developed a Value Stream Mapping (VSM) Automation Tool, digitizing Lean workflows and reducing manual data entry effort by 40%.",
-        "Designed and optimized PostgreSQL schemas and FastAPI-based backend APIs, improving report generation speed by 3x.",
-        "Engineered data processing and analytics logic to compute production metrics, enabling real-time insights for 5+ departments.",
-        "Owned the end-to-end system including requirements gathering, development, testing, and deployment to production."
+        "Contributed to the development of LFD Cloud, LFD Studio, and Lean Facility Design (LFD) platforms, delivering automation solutions for manufacturing and operational excellence initiatives.",
+        "Designed and developed scalable backend services using FastAPI and PostgreSQL, including database architecture, API development, analytics processing, and business logic implementation.",
+        "Built and enhanced multiple modules including Value Stream Mapping (VSM) Automation, Risk Assessment & Recommendations, AI-powered Insights, Sustainability Management, and production analytics dashboards.",
+        "Integrated AI capabilities, including LLM-based recommendations, RAG-powered knowledge retrieval, and intelligent workflow automation to improve decision-making and operational visibility.",
+        "Managed production deployments and cloud infrastructure on Linux VPS environments, implementing Docker, Nginx, and CI/CD pipelines to ensure reliable releases and system scalability.",
+        "Collaborated with cross-functional teams to translate business requirements into production-ready solutions, supporting the complete software lifecycle from design and development to testing and deployment.",
+        "Developed data processing and reporting systems that transformed operational data into actionable insights for manufacturing, process improvement, and continuous improvement initiatives.",
+      ],
+      liveSystems: [
+        { label: "LFD", href: "https://lfd.faberinfinite.com" },
+        { label: "LFD Cloud", href: "https://lfdcloud.faberinfinite.com" },
+        { label: "LFD Studio", href: "https://lfdstudio.faberinfinite.com" },
       ],
     },
     {
@@ -78,10 +161,13 @@ export const DATA = {
       start: "Jan 2026",
       end: "May 2026",
       bullets: [
-        "Developed a Value Stream Mapping (VSM) Automation Tool, digitizing Lean workflows and reducing manual data entry effort by 40%.",
-        "Designed and optimized PostgreSQL schemas and FastAPI-based backend APIs, improving report generation speed by 3x.",
-        "Engineered data processing and analytics logic to compute production metrics, enabling real-time insights for 5+ departments.",
-        "Owned the end-to-end system including requirements gathering, development, testing, and deployment to production."
+        "Built the Value Stream Mapping (VSM) Automation Tool on LFD Studio, digitizing Lean workflows for manufacturing clients and cutting manual data entry effort by 40%.",
+        "Built the React frontend and FastAPI backend for LFD Studio, containerized with Docker, improving report generation speed by 3x.",
+        "Designed the PostgreSQL data model and engineered analytics logic to compute production metrics for client teams.",
+        "Owned the end-to-end feature lifecycle — requirements gathering, development, testing, and deployment.",
+      ],
+      liveSystems: [
+        { label: "LFD Studio", href: "https://lfdstudio.faberinfinite.com" },
       ],
     },
     {
@@ -94,9 +180,9 @@ export const DATA = {
       start: "Nov 2024",
       end: "May 2025",
       bullets: [
-        "Analyzed and interpreted complex datasets containing over 500,000 records to identify key business trends.",
-        "Developed data processing pipelines and statistical models, accelerating data extraction and improving data accuracy by 25%.",
-        "Collaborated remotely with cross-functional teams to deliver actionable insights that informed strategic decisions."
+        "Analyzed 500,000+ records across complex datasets to surface key business trends for stakeholders.",
+        "Built data processing pipelines and statistical models that accelerated data extraction and improved data accuracy by 25%.",
+        "Collaborated remotely with cross-functional teams to turn analysis into actionable insights that informed strategic decisions.",
       ],
     },
     {
@@ -357,6 +443,48 @@ export const DATA = {
       portrait: false,
     },
   ],
+  philosophers: [
+    {
+      name: "Krishna",
+      era: "Bhagavad Gita, ancient India",
+      work: "Bhagavad Gita",
+      coreIdea:
+        "Do the work that is yours to do, fully — but release your grip on what it earns you.",
+      // DRAFT — replace with your own reflection.
+      perspective:
+        "The setting is what makes it land: Arjuna freezes on a battlefield, and the whole text is a conversation about acting when you're uncertain and the stakes are real. Karma yoga — act without attachment to the fruit of the action — sounds like detachment until you sit with it, and then it reads as the opposite. It isn't about caring less; it's about not letting the outcome decide whether the effort was worth making. That reframed how I approach work I can't control the reception of.",
+    },
+    {
+      name: "Marcus Aurelius",
+      era: "Stoicism, 121–180 CE",
+      work: "Meditations",
+      coreIdea:
+        "You don't control what happens to you — only how you respond. Everything else is noise.",
+      // DRAFT — replace with your own reflection.
+      perspective:
+        "I read this during a stretch where I was frustrated by things completely outside my control — delays, other people's decisions, outcomes I couldn't influence. Aurelius wasn't writing for an audience; these were private notes to himself, which is why they land differently. The idea that discipline over your own reaction is the only real freedom you have reframed a lot of my day-to-day frustration. I still fail at it constantly, but I notice the failing now, which is new.",
+    },
+    {
+      name: "Friedrich Nietzsche",
+      era: "Existentialism, 1844–1900",
+      work: "Thus Spoke Zarathustra",
+      coreIdea:
+        "Don't inherit your values — examine them, and have the courage to build your own.",
+      // DRAFT — replace with your own reflection.
+      perspective:
+        "This one was harder to sit with. Zarathustra isn't a comfortable read — it keeps pushing back on the idea that following convention or received wisdom is enough. What stayed with me wasn't any single line but the discomfort of asking 'do I actually believe this, or did I just absorb it?' about things I'd never questioned — career choices, what counts as success, what I owe other people versus myself.",
+    },
+    {
+      name: "Osho",
+      era: "20th century, spiritual teacher",
+      work: "The Book of Man, The Book of Women, Creativity, Maturity",
+      coreIdea:
+        "Maturity isn't age — it's the willingness to be exactly where you are without pretending otherwise.",
+      // DRAFT — replace with your own reflection.
+      perspective:
+        "I came to Osho through curiosity about the spiritual-awareness side of things I mentioned growing up with, and stayed because his writing on maturity and creativity is oddly practical — less mysticism, more direct observation about why people perform confidence, hide uncertainty, or chase validation instead of just doing the work they care about. It's shaped how I think about building things: less about looking finished, more about being honest about what stage something is actually at.",
+    },
+  ],
   books: [
     {
       theme: "Self-Improvement / Personal Growth",
@@ -481,6 +609,20 @@ export const DATA = {
           author: "Friedrich Nietzsche",
           number: 15,
           cover: "https://covers.openlibrary.org/b/id/1017466-L.jpg",
+          genre: "Fiction",
+        },
+        {
+          title: "Days at the Morisaki Bookshop",
+          author: "Satoshi Yagisawa",
+          number: 24,
+          cover: "https://covers.openlibrary.org/b/id/13482084-L.jpg",
+          genre: "Fiction",
+        },
+        {
+          title: "Hamlet",
+          author: "William Shakespeare",
+          number: 25,
+          cover: "https://covers.openlibrary.org/b/id/8281954-L.jpg",
           genre: "Fiction",
         },
       ],

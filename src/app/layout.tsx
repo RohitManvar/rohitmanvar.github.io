@@ -25,6 +25,13 @@ export const metadata: Metadata = {
   keywords: [
     "Rohit Manvar",
     "Portfolio",
+    "AI Engineer",
+    "Data Engineer",
+    "Software Developer",
+    "FastAPI Developer",
+    "PostgreSQL Developer",
+    "RAG Developer",
+    "SaaS Developer",
     "Data Engineering",
     "AI/ML",
     "Data Scientist",
@@ -33,6 +40,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: DATA.name, url: DATA.url }],
   creator: DATA.name,
+  alternates: {
+    canonical: DATA.url,
+  },
   openGraph: {
     title: `${DATA.name} | Data Engineering & AI/ML Portfolio`,
     description: DATA.description,
@@ -72,6 +82,35 @@ export const metadata: Metadata = {
   },
 };
 
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: DATA.name,
+  url: DATA.url,
+  jobTitle: "Software Developer",
+  worksFor: {
+    "@type": "Organization",
+    name: "Faber Infinite",
+    url: "https://faberinfinite.com/",
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: DATA.location,
+    addressCountry: "IN",
+  },
+  sameAs: Object.values(DATA.contact.social)
+    .filter((s) => s.navbar)
+    .map((s) => s.url),
+  knowsAbout: [
+    "AI Engineering",
+    "Data Engineering",
+    "FastAPI",
+    "PostgreSQL",
+    "RAG",
+    "SaaS Development",
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -85,6 +124,10 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <TooltipProvider delayDuration={0}>
             <div className="max-w-2xl mx-auto px-container-padding">

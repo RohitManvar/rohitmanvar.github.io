@@ -32,6 +32,12 @@
       --input: 0 0% 89.8%;
       --ring: 0 0% 3.9%;
 
+      /* Single brand accent — electric blue. Used sparingly: link hovers,
+         active nav state, one highlight per page. Not shadcn's --accent
+         (that stays neutral, used throughout the UI kit for hover states). */
+      --brand: 217 91% 60%;
+      --brand-foreground: 0 0% 100%;
+
       --radius: 0.5rem;
     }
 
@@ -63,6 +69,11 @@
       --border: 0 0% 14.9%;
       --input: 0 0% 14.9%;
       --ring: 0 0% 83.1%;
+
+      /* Slightly brighter/lighter than the light-mode value for contrast
+         against the dark background. */
+      --brand: 217 91% 68%;
+      --brand-foreground: 0 0% 9%;
     }
   .theme {
         --animate-orbit: orbit calc(var(--duration)*1s) linear infinite;
