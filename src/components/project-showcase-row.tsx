@@ -1,6 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
 
 interface ProjectShowcaseRowProps {
   title: string;
@@ -16,6 +17,7 @@ interface ProjectShowcaseRowProps {
     type: string;
     href: string;
   }[];
+  caseStudyHref?: string;
 }
 
 export function ProjectShowcaseRow({
@@ -27,6 +29,7 @@ export function ProjectShowcaseRow({
   color = "#0f172a",
   portrait = false,
   links,
+  caseStudyHref,
 }: ProjectShowcaseRowProps) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center">
@@ -46,6 +49,15 @@ export function ProjectShowcaseRow({
         )}
         {links && links.length > 0 && (
           <div className="flex flex-row flex-wrap items-center gap-2 pt-2">
+            {caseStudyHref && (
+              <Link
+                href={caseStudyHref}
+                className="inline-flex items-center gap-1 text-sm font-medium text-brand underline-offset-4 hover:underline"
+              >
+                Case study
+                <ArrowUpRight className="size-3.5" />
+              </Link>
+            )}
             {links.map((link, idx) => (
               <Link href={link.href} key={idx} target="_blank" rel="noopener noreferrer">
                 <Badge className="flex gap-1.5 px-2.5 py-1 text-xs">

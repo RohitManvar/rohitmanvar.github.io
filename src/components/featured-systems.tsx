@@ -30,8 +30,8 @@ const CARD_ICONS = [Layers, Cloud, Layers];
 // Indices match `order`, which advances by one each tick.
 const STACK_POSITIONS = [
   { y: 0, scale: 1, opacity: 1 }, // front, centred
-  { y: -104, scale: 0.9, opacity: 0.9 }, // just left the front, now above
-  { y: 104, scale: 0.9, opacity: 0.9 }, // waiting below, rises next
+  { y: -128, scale: 0.9, opacity: 0.9 }, // above the front with its title visible
+  { y: 128, scale: 0.9, opacity: 0.9 }, // below the front with its title visible
 ];
 
 const CARD_HEIGHT = 210;
@@ -91,6 +91,7 @@ export function FeaturedSystems({ delay = 0 }: FeaturedSystemsProps) {
               const Icon = CARD_ICONS[iconIndex % CARD_ICONS.length];
               const pos = STACK_POSITIONS[stackIndex] ?? STACK_POSITIONS[STACK_POSITIONS.length - 1];
               const isFront = stackIndex === 0;
+              const isBelowFront = stackIndex === order.length - 1;
 
               return (
                 <motion.div
@@ -116,7 +117,10 @@ export function FeaturedSystems({ delay = 0 }: FeaturedSystemsProps) {
                 >
                   {/* Text side */}
                   <div className="flex-1 min-w-0 p-6 sm:p-7 flex flex-col">
-                    <div className="flex items-center justify-between gap-2">
+                    <div className={cn(
+                      "flex items-center justify-between gap-2",
+                      isBelowFront && "mt-auto"
+                    )}>
                       <h3 className="text-xl sm:text-2xl font-bold tracking-tight truncate">
                         {system.title}
                       </h3>

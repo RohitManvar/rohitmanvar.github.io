@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { BookOpenIcon, FeatherIcon } from "lucide-react";
 
 // Direct imports — these all use standard React/framer-motion hooks that work with SSR
 import BlurFade from "@/components/magicui/blur-fade";
@@ -102,11 +103,30 @@ export default function Page() {
               </BlurFade> */}
             </div>
             <BlurFade delay={BLUR_FADE_DELAY * 3}>
-              <div className="relative">
+              <div className="group relative shrink-0">
                 <Avatar className="relative size-36 border-2 border-background shadow-xl">
                   <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
                   <AvatarFallback>{DATA.initials}</AvatarFallback>
                 </Avatar>
+
+                <div className="absolute -right-14 top-1/2 flex -translate-y-1/2 flex-col gap-3">
+                  <Link
+                    href="/books"
+                    aria-label="Open Books"
+                    title="Books"
+                    className="pointer-events-none inline-flex size-9 translate-x-2 items-center justify-center rounded-full border border-border bg-background text-muted-foreground opacity-0 shadow-md transition-all duration-200 hover:bg-muted hover:text-foreground focus-visible:pointer-events-auto focus-visible:translate-x-0 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring group-hover:pointer-events-auto group-hover:translate-x-0 group-hover:opacity-100"
+                  >
+                    <BookOpenIcon className="size-4" aria-hidden="true" />
+                  </Link>
+                  <Link
+                    href="/philosophy"
+                    aria-label="Open Philosophy"
+                    title="Philosophy"
+                    className="pointer-events-none inline-flex size-9 translate-x-2 items-center justify-center rounded-full border border-border bg-background text-muted-foreground opacity-0 shadow-md transition-all duration-200 hover:bg-muted hover:text-foreground focus-visible:pointer-events-auto focus-visible:translate-x-0 focus-visible:opacity-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring group-hover:pointer-events-auto group-hover:translate-x-0 group-hover:opacity-100"
+                  >
+                    <FeatherIcon className="size-4" aria-hidden="true" />
+                  </Link>
+                </div>
               </div>
             </BlurFade>
           </div>
@@ -255,6 +275,7 @@ export default function Page() {
                   color={project.color}
                   portrait={project.portrait}
                   links={project.links}
+                  caseStudyHref={"caseStudyHref" in project ? project.caseStudyHref : undefined}
                 />
               </BlurFade>
             ))}

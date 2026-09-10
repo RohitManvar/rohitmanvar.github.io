@@ -15,8 +15,8 @@ export const DATA = {
 
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
-    { href: "/books", icon: BookOpenIcon, label: "Books" },
-    { href: "/philosophy", icon: FeatherIcon, label: "Philosophy" },
+    // { href: "/books", icon: BookOpenIcon, label: "Books" },
+    // { href: "/philosophy", icon: FeatherIcon, label: "Philosophy" },
     // { href: "/blog", icon: NotebookIcon, label: "Blog" },
     // { href: "/showcase", icon: SparklesIcon, label: "Showcase" },
   ],
@@ -223,6 +223,7 @@ export const DATA = {
   projects: [
     {
       title: "Enlyghten — Data Pipeline",
+      caseStudyHref: "/projects/enlyghten",
       href: "https://philo-data-pipeline.vercel.app/",
       dates: "",
       active: true,
@@ -256,6 +257,7 @@ export const DATA = {
     },
     {
       title: "PopcornS — Movie Recommendation",
+      caseStudyHref: "/projects/popcorns",
       href: "https://movie-recommender-system-chi-plum.vercel.app/",
       dates: "",
       active: true,
@@ -292,6 +294,7 @@ export const DATA = {
     },
     {
       title: "Vibe2Value",
+      caseStudyHref: "/projects/vibe2value",
       href: "https://vibe2-value-rho.vercel.app/",
       dates: "",
       active: true,
