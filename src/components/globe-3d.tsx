@@ -118,7 +118,9 @@ export function Globe3D() {
   return (
     <div ref={containerRef} className="w-full relative mt-8 flex flex-col items-center">
       <div className="w-full h-[300px] relative rounded-xl overflow-hidden bg-transparent flex items-center justify-center">
-        <div className="w-[450px] h-[450px]">
+        {/* Square, but never wider than the viewport allows — a fixed 450px
+            here overflows the page container on phones. */}
+        <div className="aspect-square w-[450px] max-w-full">
           <GlobeErrorBoundary fallback={
             <div className="w-full h-full flex items-center justify-center text-muted-foreground text-sm">
               <span>📍 Vadodara, India</span>

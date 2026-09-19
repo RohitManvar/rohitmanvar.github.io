@@ -116,12 +116,12 @@ export function FeaturedSystems({ delay = 0 }: FeaturedSystemsProps) {
                   style={{ height: CARD_HEIGHT, marginTop: -CARD_HEIGHT / 2 }}
                 >
                   {/* Text side */}
-                  <div className="flex-1 min-w-0 p-6 sm:p-7 flex flex-col">
+                  <div className="flex-1 min-w-0 p-5 sm:p-7 flex flex-col">
                     <div className={cn(
                       "flex items-center justify-between gap-2",
                       isBelowFront && "mt-auto"
                     )}>
-                      <h3 className="text-xl sm:text-2xl font-bold tracking-tight truncate">
+                      <h3 className="text-lg sm:text-2xl font-bold tracking-tight truncate">
                         {system.title}
                       </h3>
                       {isFront && (
@@ -157,7 +157,7 @@ export function FeaturedSystems({ delay = 0 }: FeaturedSystemsProps) {
                       with a muted tone instead of a photo. */}
                   <div
                     className={cn(
-                      "relative w-28 sm:w-40 flex-shrink-0 flex items-center justify-center",
+                      "relative w-20 sm:w-40 flex-shrink-0 flex items-center justify-center",
                       // Keep the blob readable against whichever surface the
                       // card is using — muted on the front, a shade deeper on
                       // the grey background cards.
