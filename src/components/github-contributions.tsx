@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import BlurFade from "./magicui/blur-fade";
+import contributionData from "@/data/contributions.json";
 
 interface ContributionDay {
   date: string;
@@ -25,87 +25,21 @@ const getGreenColor = (count: number, isDark: boolean): string => {
 };
 
 export const GitHubContributions = ({ username, delay = 0 }: GitHubContributionsProps) => {
-  const [contributions, setContributions] = useState<ContributionDay[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
+  // Data is fetched at build time by scripts/fetch-contributions.mjs, so the
+  // GitHub token never ships to the browser. An empty calendar means that
+  // fetch failed or ran without a token — fall through to the error state.
+  // Typed explicitly: when the JSON holds an empty calendar TypeScript would
+  // otherwise infer `days` as never[].
+  const days = contributionData.days as { date: string; contributionCount: number }[];
+  const contributions: ContributionDay[] = days.map((day) => ({
+    date: day.date,
+    contributionCount: day.contributionCount,
+    color: "",
+  }));
+  const loading = false;
+  const error = contributions.length === 0;
   const { resolvedTheme } = useTheme();
   const isDark = resolvedTheme === "dark";
-
-  useEffect(() => {
-    const fetchContributions = async () => {
-      try {
-        const currentDate = new Date();
-        const oneYearAgo = new Date(currentDate);
-        oneYearAgo.setFullYear(oneYearAgo.getFullYear() - 1);
-        const fromDate = oneYearAgo.toISOString();
-        const toDate = currentDate.toISOString();
-
-        const query = `
-          query {
-            user(login: "${username}") {
-              contributionsCollection(from: "${fromDate}", to: "${toDate}") {
-                contributionCalendar {
-                  totalContributions
-                  weeks {
-                    contributionDays {
-                      date
-                      contributionCount
-                      color
-                    }
-                  }
-                }
-              }
-            }
-          }
-        `;
-
-        const response = await fetch('https://api.github.com/graphql', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${process.env.NEXT_PUBLIC_GITHUB_TOKEN || ''}`,
-          },
-          body: JSON.stringify({ query }),
-        });
-
-        if (!response.ok) {
-          setError(true);
-          setLoading(false);
-          return;
-        }
-
-        const data = await response.json();
-
-        if (data.errors || !data.data?.user) {
-          setError(true);
-          setLoading(false);
-          return;
-        }
-
-        const weeks = data.data?.user?.contributionsCollection?.contributionCalendar?.weeks || [];
-
-        const allContributions: ContributionDay[] = [];
-        weeks.forEach((week: any) => {
-          week.contributionDays.forEach((day: any) => {
-            allContributions.push({
-              date: day.date,
-              contributionCount: day.contributionCount,
-              color: day.color,
-            });
-          });
-        });
-
-        setContributions(allContributions);
-      } catch (err) {
-        console.error('Error fetching GitHub contributions:', err);
-        setError(true);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchContributions();
-  }, [username]);
 
   if (loading) {
     return (

@@ -5,6 +5,7 @@
   "homepage": "https://rohitmanvar.github.io",
   "scripts": {
     "dev": "next dev",
+    "prebuild": "node scripts/fetch-contributions.mjs",
     "build": "next build",
     "build:static": "next build",
     "start": "next start",

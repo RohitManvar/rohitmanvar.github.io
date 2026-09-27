@@ -5,6 +5,11 @@ on:
     branches: [main]
   pull_request:
     branches: [main]
+  # Contribution data is baked in at build time, so rebuild daily to keep the
+  # activity graph current between pushes.
+  schedule:
+    - cron: "0 3 * * *"
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -42,7 +47,11 @@ jobs:
       - name: Build
         run: pnpm build
         env:
-          NEXT_PUBLIC_GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          # Not NEXT_PUBLIC_*: this token is used only by the prebuild script
+          # that bakes contribution data into the page. Prefixing it would
+          # inline it into the client bundle and publish it to every visitor.
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          GITHUB_USERNAME: RohitManvar
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
