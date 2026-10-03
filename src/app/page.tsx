@@ -66,7 +66,7 @@ export default function Page() {
               />
 
               <BlurFadeText
-                className="max-w-[600px] text-muted-foreground md:text-xl"
+                className="max-w-[600px] text-muted-foreground md:text-xl whitespace-pre-line"
                 delay={BLUR_FADE_DELAY * 2}
                 text={DATA.description}
               />
@@ -147,7 +147,7 @@ export default function Page() {
               <p className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
                 I was born and raised in Junagadh. I&apos;ve always been curious about how things work, and early on, I loved exploring the mysteries of life and developing a sense of spiritual awareness.<br />
                 <span className="bg-yellow-100 dark:bg-blue-900 dark:text-amber-100 px-1 rounded">
-                  "I'm exerting myself to escape the same mind that traps me."
+                  &quot;I&apos;m exerting myself to escape the same mind that traps me.&quot;
                 </span>
               </p>
             </BlurFade>
@@ -158,12 +158,17 @@ export default function Page() {
             </BlurFade>
             <BlurFade delay={BLUR_FADE_DELAY * 13}>
               <p className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
-                That moment pushed me to pursue a Bachelor’s in Computer Applications at Atmiya University, Rajkot, where I explored programming, theory, and built a strong technical foundation. Today, as a Master’s student at The Maharaja Sayajirao University of Baroda, I’m continuing that journey and growing as a developer.
+                That moment pushed me to pursue a Bachelor’s in Computer Applications at Atmiya University, Rajkot, where I explored programming, theory, and built a strong technical foundation.
+              </p>
+            </BlurFade>
+            <BlurFade delay={BLUR_FADE_DELAY * 14}>
+              <p className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
+                I later pursued a Master of Computer Applications at The Maharaja Sayajirao University of Baroda, where I continued developing my technical skills and exploring different areas of AI, DE, Software development.
               </p>
             </BlurFade>
             <BlurFade delay={BLUR_FADE_DELAY * 15}>
               <p className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
-                Along the way, I found two passions: Android application development and Data Engineering. With Android, I enjoy creating apps that bring ideas to life for users. And with Data Engineering, I dive into the world of pipelines, scalable systems, and insights.
+                Today, I am a Software Developer with interests centered around Data Engineering, AI, and building scalable software systems. I enjoy working with data, automation, backend technologies, and applications that solve real problems. I&apos;m passionate about turning processes into efficient, data-driven solutions, and I see every project as an opportunity to learn, build, and create meaningful impact through technology.
               </p>
             </BlurFade>
             <BlurFade delay={BLUR_FADE_DELAY * 16}>

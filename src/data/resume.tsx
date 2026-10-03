@@ -8,7 +8,7 @@ export const DATA = {
   location: "Vadodara",
   locationLink: "https://www.google.com/maps/place/vadodara",
   description:
-    "A Data Explorer and passionate about AI/Data Engineering & Development, Learning new technologies, crafted with care, and building projects with a mindful spirit.",
+    "A Software Developer interested in\nAI, RAG, and building useful software.\nI enjoy learning new technologies,\nworking on real problems,\nand turning ideas into things that actually work.",
   summary:
     "",
   avatarUrl: "/me.jpg",
@@ -53,11 +53,11 @@ export const DATA = {
   },
 
   whatIWorkOn: [
-    "AI & Data Applications",
+    "AI & RAG Applications",
     "Backend & API Development",
-    "SaaS Product Development",
+    "Product Development",
     "Cloud Infrastructure & Deployment",
-    "Automation Systems",
+    "Data Pipelines",
   ],
 
   whyHireMe: [
@@ -132,7 +132,7 @@ export const DATA = {
       href: "https://faberinfinite.com/",
       badges: ["Full-time"],
       location: "Vadodara, India",
-      title: "Software Developer (Automation Systems)",
+      title: "Software Developer",
       logoUrl: "/faber.jpg",
       start: "Jun 2026",
       end: "Present",
@@ -156,7 +156,7 @@ export const DATA = {
       href: "https://faberinfinite.com/",
       badges: ["Internship"],
       location: "Vadodara, India",
-      title: "Software Developer Intern (Automation Systems)",
+      title: "Software Developer Intern",
       logoUrl: "/faber.jpg",
       start: "Jan 2026",
       end: "May 2026",
