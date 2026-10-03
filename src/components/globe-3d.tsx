@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useState, useEffect, useRef, Component, memo } from "react";
-import { ComposableMap, Geographies, Geography, Sphere, Marker } from "react-simple-maps";
+import React, { Component, memo } from "react";
+import { ComposableMap, Geographies, Geography, Marker } from "react-simple-maps";
 import { MapPin } from "lucide-react";
 
 const geoUrl = "https://unpkg.com/world-atlas@2.0.2/countries-110m.json";
 
-class GlobeErrorBoundary extends Component<
+class MapErrorBoundary extends Component<
   { children: React.ReactNode; fallback: React.ReactNode },
   { hasError: boolean }
 > {
@@ -14,25 +14,23 @@ class GlobeErrorBoundary extends Component<
     super(props);
     this.state = { hasError: false };
   }
-
   static getDerivedStateFromError() {
     return { hasError: true };
   }
-
   render() {
     if (this.state.hasError) return this.props.fallback;
     return this.props.children;
   }
 }
 
-const GlobeMap = memo(function GlobeMap({ rotation }: { rotation: number }) {
+const FlatWorldMap = memo(function FlatWorldMap() {
   return (
     <ComposableMap
-      projection="geoOrthographic"
-      projectionConfig={{ rotate: [-rotation, -15, 0], scale: 210 }}
+      projection="geoMercator"
+      // Center the map so India is nicely visible and scale it to fit
+      projectionConfig={{ scale: 110, center: [10, 30] }}
       style={{ width: "100%", height: "100%" }}
     >
-      <Sphere stroke="currentColor" strokeWidth={0.5} fill="transparent" id="sphere" />
       <Geographies geography={geoUrl}>
         {({ geographies }) =>
           geographies.map((geo) => {
@@ -41,12 +39,14 @@ const GlobeMap = memo(function GlobeMap({ rotation }: { rotation: number }) {
               <Geography
                 key={geo.rsmKey}
                 geography={geo}
-                fill={isIndia ? "currentColor" : "transparent"}
-                stroke="currentColor"
+                fill="currentColor"
+                stroke="transparent"
                 strokeWidth={0.5}
+                // Highlight India heavily, and make the rest of the world subtle to match the theme
+                className={isIndia ? "text-foreground" : "text-muted-foreground opacity-30"}
                 style={{
                   default: { outline: "none" },
-                  hover: { outline: "none", fill: isIndia ? "currentColor" : "rgba(100, 100, 100, 0.1)" },
+                  hover: { outline: "none", opacity: isIndia ? 1 : 0.6 },
                   pressed: { outline: "none" },
                 }}
               />
@@ -55,7 +55,7 @@ const GlobeMap = memo(function GlobeMap({ rotation }: { rotation: number }) {
         }
       </Geographies>
       <Marker coordinates={[73.1812, 22.3072]}>
-        <g transform="translate(-4, -4)" className="text-background">
+        <g transform="translate(-4, -4)" className="text-foreground">
           <circle cx="4" cy="4" r="4" fill="currentColor" className="animate-ping opacity-75" />
           <circle cx="4" cy="4" r="2" fill="currentColor" />
         </g>
@@ -64,70 +64,28 @@ const GlobeMap = memo(function GlobeMap({ rotation }: { rotation: number }) {
   );
 });
 
-// The globe's geography data is expensive to re-process (react-simple-maps
-// re-derives paths from the TopoJSON on every render), so we drive rotation
-// as a low-frequency state update instead of a per-frame one — a visually
-// smooth rotation only needs a handful of steps per second, not 60.
-const ROTATION_STEP_MS = 100;
-
 export function Globe3D() {
-  const [rotation, setRotation] = useState(0);
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    let intervalId: ReturnType<typeof setInterval> | null = null;
-
-    const start = () => {
-      if (intervalId) return;
-      intervalId = setInterval(() => {
-        setRotation((r) => (r + 1) % 360);
-      }, ROTATION_STEP_MS);
-    };
-    const stop = () => {
-      if (intervalId) {
-        clearInterval(intervalId);
-        intervalId = null;
-      }
-    };
-
-    // Pause the animation entirely when the globe is scrolled out of view
-    // so it doesn't compete with route/page-transition work elsewhere.
-    const observer = new IntersectionObserver(
-      ([entry]) => (entry.isIntersecting ? start() : stop()),
-      { threshold: 0 }
-    );
-    observer.observe(container);
-
-    return () => {
-      stop();
-      observer.disconnect();
-    };
-  }, []);
-
   const locationPin = (
-    <div className="absolute -bottom-6 z-10 pointer-events-none flex items-center justify-center">
+    <div className="absolute -bottom-4 z-10 pointer-events-none flex items-center justify-center">
       <span className="inline-flex items-center gap-2 text-sm font-medium bg-background/80 text-foreground px-4 py-2 rounded-full border shadow-sm transition-transform hover:scale-105 pointer-events-auto cursor-pointer">
-        <MapPin className="size-4 text-primary" /> Vadodara, India
+        <MapPin className="size-4 text-foreground" /> Vadodara, India
       </span>
     </div>
   );
 
   return (
-    <div ref={containerRef} className="w-full relative mt-8 flex flex-col items-center">
-      <div className="w-full h-[300px] relative rounded-xl overflow-hidden bg-transparent flex items-center justify-center">
-        {/* Square, but never wider than the viewport allows — a fixed 450px
-            here overflows the page container on phones. */}
-        <div className="aspect-square w-[450px] max-w-full">
-          <GlobeErrorBoundary fallback={
+    <div className="w-full relative mt-4 flex flex-col items-center">
+      {/* Container is slightly taller to accommodate the flat map */}
+      <div className="w-full h-[320px] relative rounded-xl overflow-hidden bg-transparent flex items-center justify-center">
+        {/* We use a wider max-width for the flat map than we did for the globe */}
+        <div className="w-full max-w-[800px] h-full">
+          <MapErrorBoundary fallback={
             <div className="w-full h-full flex items-center justify-center text-muted-foreground text-sm">
               <span>📍 Vadodara, India</span>
             </div>
           }>
-            <GlobeMap rotation={rotation} />
-          </GlobeErrorBoundary>
+            <FlatWorldMap />
+          </MapErrorBoundary>
         </div>
       </div>
       {locationPin}
